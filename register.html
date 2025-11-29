@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Voyage Élégance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-wrapper">
+            <div class="login-left">
+                <div class="login-brand">
+                    <h1>✈️ Voyage Élégance</h1>
+                    <p class="brand-subtitle">Rejoignez-nous pour découvrir le monde</p>
+                </div>
+                <div class="login-illustration">
+                    <div class="illustration-circle circle-1"></div>
+                    <div class="illustration-circle circle-2"></div>
+                    <div class="illustration-circle circle-3"></div>
+                    <div class="illustration-icon">🎒</div>
+                </div>
+                <div class="login-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">✨</span>
+                        <span>Offres exclusives</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎁</span>
+                        <span>Avantages membres</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📧</span>
+                        <span>Notifications personnalisées</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="login-right">
+                <div class="login-box">
+                    <div class="login-header">
+                        <h2>Créer un compte</h2>
+                        <p>Inscrivez-vous pour accéder à nos services</p>
+                    </div>
+
+                    <form class="login-form" id="registerForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="prenom">Prénom *</label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon">👤</span>
+                                    <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required
+                                        autocomplete="given-name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nom">Nom *</label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon">👤</span>
+                                    <input type="text" id="nom" name="nom" placeholder="Votre nom" required
+                                        autocomplete="family-name">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Adresse Email *</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon">✉️</span>
+                                <input type="email" id="email" name="email" placeholder="votre.email@exemple.com"
+                                    required autocomplete="email">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telephone">Téléphone *</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon">📞</span>
+                                <input type="tel" id="telephone" name="telephone" placeholder="+224 612 34 56 78"
+                                    required autocomplete="tel">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Mot de passe *</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon">🔒</span>
+                                <input type="password" id="password" name="password" placeholder="Minimum 8 caractères"
+                                    required autocomplete="new-password" minlength="8">
+                                <button type="button" class="password-toggle" id="passwordToggle"
+                                    aria-label="Afficher/Masquer le mot de passe">
+                                    <span class="eye-icon">👁️</span>
+                                </button>
+                            </div>
+                            <small class="password-hint">Le mot de passe doit contenir au moins 8 caractères</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm-password">Confirmer le mot de passe *</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon">🔒</span>
+                                <input type="password" id="confirm-password" name="confirm-password"
+                                    placeholder="Répétez votre mot de passe" required autocomplete="new-password">
+                                <button type="button" class="password-toggle" id="confirmPasswordToggle"
+                                    aria-label="Afficher/Masquer le mot de passe">
+                                    <span class="eye-icon">👁️</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date-naissance">Date de naissance</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon">📅</span>
+                                <input type="date" id="date-naissance" name="date-naissance" autocomplete="bday">
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <label for="newsletter">Je souhaite recevoir les offres promotionnelles par
+                                    email</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="conditions" name="conditions" required>
+                                <label for="conditions">J'accepte les <a href="#" class="link">conditions générales</a>
+                                    et la <a href="#" class="link">politique de confidentialité</a> *</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-login">
+                            <span>Créer mon compte</span>
+                            <span class="btn-loader"></span>
+                        </button>
+
+                        <div class="login-divider">
+                            <span>ou</span>
+                        </div>
+
+                        <div class="social-login">
+                            <button type="button" class="btn-social btn-google">
+                                <span>🔍</span>
+                                <span>S'inscrire avec Google</span>
+                            </button>
+                            <button type="button" class="btn-social btn-facebook">
+                                <span>📘</span>
+                                <span>S'inscrire avec Facebook</span>
+                            </button>
+                        </div>
+
+                        <div class="login-footer">
+                            <p>Vous avez déjà un compte ? <a href="login.html">Se connecter</a></p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="back-home">
+                    <a href="acceuil.html" class="back-link">
+                        <span>←</span>
+                        <span>Retour à l'accueil</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Password toggle
+        const passwordToggle = document.getElementById('passwordToggle');
+        const confirmPasswordToggle = document.getElementById('confirmPasswordToggle');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm-password');
+
+        if (passwordToggle && passwordInput) {
+            passwordToggle.addEventListener('click', () => {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                passwordToggle.classList.toggle('active');
+            });
+        }
+
+        if (confirmPasswordToggle && confirmPasswordInput) {
+            confirmPasswordToggle.addEventListener('click', () => {
+                const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                confirmPasswordInput.setAttribute('type', type);
+                confirmPasswordToggle.classList.toggle('active');
+            });
+        }
+
+        // Password validation
+        const registerForm = document.getElementById('registerForm');
+        if (registerForm) {
+            registerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const password = passwordInput.value;
+                const confirmPassword = confirmPasswordInput.value;
+                const email = document.getElementById('email').value;
+                const prenom = document.getElementById('prenom').value;
+                const nom = document.getElementById('nom').value;
+                const submitBtn = registerForm.querySelector('.btn-login');
+                const loader = submitBtn.querySelector('.btn-loader');
+
+                // Validate passwords match
+                if (password !== confirmPassword) {
+                    alert('Les mots de passe ne correspondent pas. Veuillez réessayer.');
+                    confirmPasswordInput.focus();
+                    return;
+                }
+
+                // Validate password length
+                if (password.length < 8) {
+                    alert('Le mot de passe doit contenir au moins 8 caractères.');
+                    passwordInput.focus();
+                    return;
+                }
+
+                // Show loading state
+                submitBtn.classList.add('loading');
+                loader.style.display = 'block';
+                submitBtn.disabled = true;
+
+                // Simulate API call
+                setTimeout(() => {
+                    submitBtn.classList.remove('loading');
+                    loader.style.display = 'none';
+                    submitBtn.disabled = false;
+
+                    alert(`Inscription réussie !\n\nBienvenue ${prenom} ${nom} !\n\nUn email de confirmation a été envoyé à ${email}\n\n(Note: Ceci est une démo. Dans une vraie application, vous seriez redirigé vers la page de connexion.)`);
+
+                    // Uncomment to redirect after successful registration
+                    // window.location.href = 'login.html';
+                }, 1500);
+            });
+        }
+
+        // Social registration buttons
+        document.querySelectorAll('.btn-social').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const provider = btn.classList.contains('btn-google') ? 'Google' : 'Facebook';
+                alert(`Inscription avec ${provider}\n\n(Note: Cette fonctionnalité nécessiterait une intégration avec les API de ${provider})`);
+            });
+        });
+
+        // Real-time password confirmation validation
+        if (confirmPasswordInput) {
+            confirmPasswordInput.addEventListener('input', () => {
+                if (confirmPasswordInput.value && passwordInput.value) {
+                    if (confirmPasswordInput.value !== passwordInput.value) {
+                        confirmPasswordInput.setCustomValidity('Les mots de passe ne correspondent pas');
+                        confirmPasswordInput.style.borderColor = '#f5576c';
+                    } else {
+                        confirmPasswordInput.setCustomValidity('');
+                        confirmPasswordInput.style.borderColor = '#43e97b';
+                    }
+                }
+            });
+
+            passwordInput.addEventListener('input', () => {
+                if (confirmPasswordInput.value && passwordInput.value) {
+                    if (confirmPasswordInput.value !== passwordInput.value) {
+                        confirmPasswordInput.setCustomValidity('Les mots de passe ne correspondent pas');
+                        confirmPasswordInput.style.borderColor = '#f5576c';
+                    } else {
+                        confirmPasswordInput.setCustomValidity('');
+                        confirmPasswordInput.style.borderColor = '#43e97b';
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
