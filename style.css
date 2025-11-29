@@ -1344,7 +1344,10 @@ body {
     }
 
     .login-form input[type="email"],
-    .login-form input[type="password"] {
+    .login-form input[type="password"],
+    .login-form input[type="text"],
+    .login-form input[type="tel"],
+    .login-form input[type="date"] {
         padding: 12px 14px 12px 45px;
     }
 }

@@ -137,18 +137,36 @@
                 const email = document.getElementById('email').value;
                 const password = document.getElementById('password').value;
                 const submitBtn = loginForm.querySelector('.btn-login');
-                const loader = submitBtn.querySelector('.btn-loader');
+                const loader = submitBtn ? submitBtn.querySelector('.btn-loader') : null;
+
+                // Validate required fields
+                if (!email || !password) {
+                    alert('Veuillez remplir tous les champs.');
+                    return;
+                }
+
+                // Validate email format
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Veuillez entrer une adresse email valide.');
+                    document.getElementById('email').focus();
+                    return;
+                }
 
                 // Show loading state
-                submitBtn.classList.add('loading');
-                loader.style.display = 'block';
-                submitBtn.disabled = true;
+                if (submitBtn && loader) {
+                    submitBtn.classList.add('loading');
+                    loader.style.display = 'block';
+                    submitBtn.disabled = true;
+                }
 
                 // Simulate API call
                 setTimeout(() => {
-                    submitBtn.classList.remove('loading');
-                    loader.style.display = 'none';
-                    submitBtn.disabled = false;
+                    if (submitBtn && loader) {
+                        submitBtn.classList.remove('loading');
+                        loader.style.display = 'none';
+                        submitBtn.disabled = false;
+                    }
 
                     // In a real application, you would validate credentials here
                     alert(`Connexion réussie !\n\nBienvenue ${email}\n\n(Note: Ceci est une démo. Dans une vraie application, vous seriez redirigé vers votre tableau de bord.)`);
