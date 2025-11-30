@@ -218,51 +218,62 @@
     </div>
 
     <script>
-        // Mobile Menu Toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
+        // Session Check Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginBtn = document.querySelector('.login-btn');
+            const userSession = localStorage.getItem('userSession');
 
-        if (hamburger) {
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-        }
+            if (userSession) {
+                loginBtn.textContent = 'Mon Profil';
+                loginBtn.href = 'profile.html';
+                loginBtn.classList.add('logged-in');
+            } else {
+                loginBtn.textContent = 'Connexion';
+                loginBtn.href = 'login.html';
+            }
 
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+            // Mobile Menu Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            }
+
+            // Close menu when clicking a link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (hamburger) hamburger.classList.remove('active');
+                    if (navMenu) navMenu.classList.remove('active');
+                });
             });
+
+            // Theme Toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const html = document.documentElement;
+
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            if (themeIcon) themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    const currentTheme = html.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                    html.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                    if (themeIcon) themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+                });
+            }
         });
 
-        // Theme Toggle (Same as main site)
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const html = document.documentElement;
-
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        html.setAttribute('data-theme', savedTheme);
-        if (savedTheme === 'dark') {
-            themeIcon.textContent = '☀️';
-        } else {
-            themeIcon.textContent = '🌙';
-        }
-
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = html.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-
-                themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            });
-        }
-
-        // Chat Functionality
+        // Chat Functionality (Global Scope)
         const messagesArea = document.getElementById('messagesArea');
         const messageInput = document.getElementById('messageInput');
         const currentNameElement = document.getElementById('currentName');

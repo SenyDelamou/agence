@@ -12,7 +12,7 @@
 </head>
 
 <body class="login-page">
-   
+
 
     <div class="login-container">
         <div class="login-wrapper">
@@ -94,10 +94,14 @@
                             <button type="button" class="btn-social btn-google">
                                 <span class="social-icon">
                                     <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/>
-                                        <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/>
-                                        <path fill="#FBBC05" d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.951H.957C.348 6.174 0 7.55 0 9s.348 2.826.957 4.049l3.007-2.342z"/>
-                                        <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.951L3.964 7.293C4.672 5.158 6.656 3.58 9 3.58z"/>
+                                        <path fill="#4285F4"
+                                            d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z" />
+                                        <path fill="#34A853"
+                                            d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z" />
+                                        <path fill="#FBBC05"
+                                            d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.951H.957C.348 6.174 0 7.55 0 9s.348 2.826.957 4.049l3.007-2.342z" />
+                                        <path fill="#EA4335"
+                                            d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.951L3.964 7.293C4.672 5.158 6.656 3.58 9 3.58z" />
                                     </svg>
                                 </span>
                                 <span>Continuer avec Google</span>
@@ -105,7 +109,8 @@
                             <button type="button" class="btn-social btn-facebook">
                                 <span class="social-icon">
                                     <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill="#1877F2" d="M18 9c0-4.97-4.03-9-9-9S0 4.03 0 9c0 4.42 3.21 8.08 7.41 8.84v-6.26H5.34V9h2.07V7.01c0-2.05 1.22-3.18 3.09-3.18.9 0 1.83.16 1.83.16v2.01h-1.03c-1.01 0-1.33.63-1.33 1.27V9h2.27l-.36 2.58h-1.91v6.26C14.79 17.08 18 13.42 18 9z"/>
+                                        <path fill="#1877F2"
+                                            d="M18 9c0-4.97-4.03-9-9-9S0 4.03 0 9c0 4.42 3.21 8.08 7.41 8.84v-6.26H5.34V9h2.07V7.01c0-2.05 1.22-3.18 3.09-3.18.9 0 1.83.16 1.83.16v2.01h-1.03c-1.01 0-1.33.63-1.33 1.27V9h2.27l-.36 2.58h-1.91v6.26C14.79 17.08 18 13.42 18 9z" />
                                     </svg>
                                 </span>
                                 <span>Continuer avec Facebook</span>
@@ -205,55 +210,39 @@
                 // Simulate API call
                 setTimeout(() => {
                     if (submitBtn && loader) {
-                        submitBtn.classList.remove('loading');
-                        loader.style.display = 'none';
-                        submitBtn.disabled = false;
-                    }
+                        btn.addEventListener('click', () => {
+                            const provider = btn.classList.contains('btn-google') ? 'Google' : 'Facebook';
+                            alert(`Connexion avec ${provider}\n\n(Note: Cette fonctionnalité nécessiterait une intégration avec les API de ${provider})`);
+                        });
+                    });
 
-                    // In a real application, you would validate credentials here
-                    alert(`Connexion réussie !\n\nBienvenue ${email}\n\n(Note: Ceci est une démo. Dans une vraie application, vous seriez redirigé vers votre tableau de bord.)`);
+                // Theme Toggle Functionality
+                const themeToggle = document.getElementById('themeToggle');
+                const themeIcon = document.getElementById('themeIcon');
+                const html = document.documentElement;
 
-                    // Uncomment to redirect after successful login
-                    // window.location.href = 'dashboard.html';
-                }, 1500);
-            });
-        }
+                // Load saved theme or default to light
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                html.setAttribute('data-theme', savedTheme);
+                if (savedTheme === 'dark') {
+                    themeIcon.textContent = '☀️';
+                } else {
+                    themeIcon.textContent = '🌙';
+                }
 
-        // Social login buttons
-        document.querySelectorAll('.btn-social').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const provider = btn.classList.contains('btn-google') ? 'Google' : 'Facebook';
-                alert(`Connexion avec ${provider}\n\n(Note: Cette fonctionnalité nécessiterait une intégration avec les API de ${provider})`);
-            });
-        });
+                // Toggle theme on button click
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', () => {
+                        const currentTheme = html.getAttribute('data-theme');
+                        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const html = document.documentElement;
+                        html.setAttribute('data-theme', newTheme);
+                        localStorage.setItem('theme', newTheme);
 
-        // Load saved theme or default to light
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        html.setAttribute('data-theme', savedTheme);
-        if (savedTheme === 'dark') {
-            themeIcon.textContent = '☀️';
-        } else {
-            themeIcon.textContent = '🌙';
-        }
-
-        // Toggle theme on button click
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = html.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                
-                // Update icon
-                themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            });
-        }
+                        // Update icon
+                        themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+                    });
+                }
     </script>
 </body>
 

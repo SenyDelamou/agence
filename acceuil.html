@@ -562,13 +562,57 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
+        // Session Check Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginBtn = document.querySelector('.login-btn');
+            const userSession = localStorage.getItem('userSession');
 
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
+            if (userSession) {
+                // User is logged in
+                loginBtn.textContent = 'Mon Profil';
+                loginBtn.href = 'profile.html';
+                loginBtn.classList.add('logged-in');
+            } else {
+                // User is NOT logged in (Session Empty)
+                loginBtn.textContent = 'Connexion';
+                loginBtn.href = 'login.html';
+            }
+
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+            }
+
+            // Theme Toggle Logic
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const html = document.documentElement;
+
+            // Load saved theme or default to light
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            if (savedTheme === 'dark') {
+                themeIcon.textContent = '☀️';
+            } else {
+                themeIcon.textContent = '🌙';
+            }
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    const currentTheme = html.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                    html.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                    themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+                });
+            }
         });
 
         // Smooth scrolling
@@ -581,8 +625,10 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    navMenu.classList.remove('active');
-                    hamburger.classList.remove('active');
+                    const navMenu = document.querySelector('.nav-menu');
+                    const hamburger = document.querySelector('.hamburger');
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (hamburger) hamburger.classList.remove('active');
                 }
             });
         });
@@ -641,35 +687,8 @@
                 navbar.classList.remove('scrolled');
             }
         });
-
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const html = document.documentElement;
-
-        // Load saved theme or default to light
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        html.setAttribute('data-theme', savedTheme);
-        if (savedTheme === 'dark') {
-            themeIcon.textContent = '☀️';
-        } else {
-            themeIcon.textContent = '🌙';
-        }
-
-        // Toggle theme on button click
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = html.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-
-                // Update icon
-                themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            });
-        }
     </script>
+
     <!-- Floating Chat Button -->
     <a href="messenger.html" class="floating-chat-btn" aria-label="Ouvrir le chat">
         💬
