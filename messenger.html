@@ -30,6 +30,7 @@
                 <li><a href="acceuil.html#contact">Contact</a></li>
             </ul>
             <div style="display: flex; align-items: center; gap: 1rem;">
+                <a href="login.html" class="login-btn">Connexion</a>
                 <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème" title="Changer de thème">
                     <span id="themeIcon">🌙</span>
                 </button>
@@ -217,6 +218,25 @@
     </div>
 
     <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
         // Theme Toggle (Same as main site)
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');

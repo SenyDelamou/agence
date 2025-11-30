@@ -1187,53 +1187,6 @@ body {
     .newsletter-form {
         flex-direction: column;
     }
-
-    .reservation-form {
-        padding: 2rem 1.5rem;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
-    .form-section h3 {
-        font-size: 1.3rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .btn {
-        padding: 12px 24px;
-        font-size: 0.9rem;
-    }
-
-    .section-header h2 {
-        font-size: 1.8rem;
-    }
-}
-
-/* Login Page Styles */
-.login-page {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    padding-top: 80px;
-}
-
-.login-container {
-    width: 100%;
-    max-width: 1200px;
 }
 
 .login-wrapper {
