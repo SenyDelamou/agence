@@ -13,7 +13,6 @@
 
 <body class="login-page">
 
-
     <div class="login-container">
         <div class="login-wrapper">
             <div class="login-left">
@@ -134,35 +133,6 @@
     </div>
 
     <script>
-        // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                hamburger.classList.toggle('active');
-            });
-
-            // Close menu when clicking on a link
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                    hamburger.classList.remove('active');
-                });
-            });
-        }
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (navbar && window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else if (navbar) {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
         // Password toggle
         const passwordToggle = document.getElementById('passwordToggle');
         const passwordInput = document.getElementById('password');
@@ -210,39 +180,62 @@
                 // Simulate API call
                 setTimeout(() => {
                     if (submitBtn && loader) {
-                        btn.addEventListener('click', () => {
-                            const provider = btn.classList.contains('btn-google') ? 'Google' : 'Facebook';
-                            alert(`Connexion avec ${provider}\n\n(Note: Cette fonctionnalité nécessiterait une intégration avec les API de ${provider})`);
-                        });
-                    });
+                        submitBtn.classList.remove('loading');
+                        loader.style.display = 'none';
+                        submitBtn.disabled = false;
+                    }
 
-                // Theme Toggle Functionality
-                const themeToggle = document.getElementById('themeToggle');
-                const themeIcon = document.getElementById('themeIcon');
-                const html = document.documentElement;
+                    // Create user session
+                    const user = {
+                        email: email,
+                        name: email.split('@')[0],
+                        avatar: 'https://ui-avatars.com/api/?name=' + email.split('@')[0] + '&background=random'
+                    };
+                    localStorage.setItem('userSession', JSON.stringify(user));
 
-                // Load saved theme or default to light
-                const savedTheme = localStorage.getItem('theme') || 'light';
-                html.setAttribute('data-theme', savedTheme);
-                if (savedTheme === 'dark') {
-                    themeIcon.textContent = '☀️';
-                } else {
-                    themeIcon.textContent = '🌙';
+                    alert(`Connexion réussie !\n\nBienvenue ${user.name}`);
+
+                    // Redirect to homepage
+                    window.location.href = 'acceuil.html';
+                }, 1500);
+            });
+        }
+
+        // Social login buttons
+        document.querySelectorAll('.btn-social').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const provider = btn.classList.contains('btn-google') ? 'Google' : 'Facebook';
+                alert(`Connexion avec ${provider}\n\n(Note: Cette fonctionnalité nécessiterait une intégration avec les API de ${provider})`);
+            });
+        });
+
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const html = document.documentElement;
+
+        // Load saved theme or default to light
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        if (themeIcon) {
+            themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // Toggle theme on button click
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+
+                // Update icon
+                if (themeIcon) {
+                    themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
                 }
-
-                // Toggle theme on button click
-                if (themeToggle) {
-                    themeToggle.addEventListener('click', () => {
-                        const currentTheme = html.getAttribute('data-theme');
-                        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-                        html.setAttribute('data-theme', newTheme);
-                        localStorage.setItem('theme', newTheme);
-
-                        // Update icon
-                        themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-                    });
-                }
+            });
+        }
     </script>
 </body>
 
