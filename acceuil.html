@@ -13,19 +13,31 @@
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar chat-navbar">
         <div class="container">
             <div class="nav-brand">
-                <a href="acceuil.html#accueil" style="text-decoration: none; color: inherit;">
+                <a href="acceuil.html" style="text-decoration: none; color: inherit;">
                     <h1>✈️ Voyage Élégance</h1>
                 </a>
             </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <ul class="nav-menu">
+                <li><a href="acceuil.html#accueil">Accueil</a></li>
+                <li><a href="acceuil.html#destinations">Destinations</a></li>
+                <li><a href="acceuil.html#reservation">Réservation</a></li>
+                <li><a href="acceuil.html#services">Services</a></li>
+                <li><a href="acceuil.html#contact">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <a href="login.html" class="login-btn">Connexion</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème" title="Changer de thème">
+                    <span id="themeIcon">🌙</span>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-        </div>
         </div>
     </nav>
 

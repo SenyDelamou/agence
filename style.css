@@ -630,28 +630,6 @@ margin-bottom: 4rem;
     cursor: pointer;
     font-weight: 400;
     line-height: 1.5;
-}
-
-.checkbox-group .link {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.checkbox-group .link:hover {
-    color: var(--secondary-color);
-    text-decoration: underline;
-}
-
-.form-submit {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.btn-large {
-    padding: 16px 48px;
-    font-size: 1.1rem;
     font-weight: 600;
 }
 
