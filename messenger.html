@@ -75,191 +75,355 @@
                     </div>
                     <div class="conversation-info">
                         <div class="conversation-top">
-                            <h3>Mariam Camara</h3>
-                            <span class="time">Lun</span>
-                        </div>
-                        <p class="last-message">Est-ce que le vol est confirmé ?</p>
-                    </div>
-                </div>
-                <div class="conversation" onclick="selectChat(this, 'Support Voyage')">
-                    <div class="avatar">
-                        <img src="https://ui-avatars.com/api/?name=Support+Voyage&background=667eea&color=fff"
-                            alt="Support">
-                        <span class="status-dot online"></span>
-                    </div>
-                    <div class="conversation-info">
-                        <div class="conversation-top">
-                            <h3>Support Voyage</h3>
-                            <span class="time">09:00</span>
-                        </div>
-                        <p class="last-message">Bienvenue sur notre chat !</p>
-                    </div>
-                </div>
-            </div>
-        </aside>
+                            <header class="chat-header">
+                                <div class="chat-user-info">
+                                    <div class="avatar">
+                                        <img src="https://ui-avatars.com/api/?name=Fatoumata+Diallo&background=random"
+                                            alt="Current User" id="currentAvatar">
+                                        <span class="status-dot online"></span>
+                                    </div>
+                                    <div class="user-details">
+                                        <h3 id="currentName">Fatoumata Diallo</h3>
+                                        <span class="status-text">En ligne</span>
+                                    </div>
+                                </div>
+                                <div class="chat-actions">
+                                    <button class="icon-btn">📞</button>
+                                    <button class="icon-btn">📹</button>
+                                    <button class="icon-btn">ℹ️</button>
+                                </div>
+                            </header>
 
-        <!-- Main Chat Area -->
-        <main class="chat-main">
-            <header class="chat-header">
-                <div class="chat-user-info">
-                    <div class="avatar">
-                        <img src="https://ui-avatars.com/api/?name=Fatoumata+Diallo&background=random"
-                            alt="Current User" id="currentAvatar">
-                        <span class="status-dot online"></span>
-                    </div>
-                    <div class="user-details">
-                        <h3 id="currentName">Fatoumata Diallo</h3>
-                        <span class="status-text">En ligne</span>
-                    </div>
-                </div>
-                <div class="chat-actions">
-                    <button class="icon-btn">📞</button>
-                    <button class="icon-btn">📹</button>
-                    <button class="icon-btn">ℹ️</button>
-                </div>
-            </header>
+                            <div class="messages-area" id="messagesArea">
+                                <div class="message received">
+                                    <div class="message-content">
+                                        <p>Bonjour ! J'aimerais avoir plus d'informations sur le voyage au Fouta
+                                            Djallon.</p>
+                                        <span class="message-time">10:30</span>
+                                    </div>
+                                </div>
+                                <div class="message sent">
+                                    <div class="message-content">
+                                        <p>Bonjour Fatoumata ! Avec plaisir. Que souhaitez-vous savoir exactement ?</p>
+                                        <span class="message-time">10:32</span>
+                                    </div>
+                                </div>
+                                <div class="message received">
+                                    <div class="message-content">
+                                        <p>Est-ce que le transport est inclus dans le prix de 500 000 GNF ?</p>
+                                        <span class="message-time">10:33</span>
+                                    </div>
+                                </div>
+                            </div>
 
-            <div class="messages-area" id="messagesArea">
-                <div class="message received">
-                    <div class="message-content">
-                        <p>Bonjour ! J'aimerais avoir plus d'informations sur le voyage au Fouta Djallon.</p>
-                        <span class="message-time">10:30</span>
-                    </div>
-                </div>
-                <div class="message sent">
-                    <div class="message-content">
-                        <p>Bonjour Fatoumata ! Avec plaisir. Que souhaitez-vous savoir exactement ?</p>
-                        <span class="message-time">10:32</span>
-                    </div>
-                </div>
-                <div class="message received">
-                    <div class="message-content">
-                        <p>Est-ce que le transport est inclus dans le prix de 500 000 GNF ?</p>
-                        <span class="message-time">10:33</span>
-                    </div>
-                </div>
-            </div>
+                            <div class="chat-input-area">
+                                <button class="icon-btn attach-btn">📎</button>
+                                <div class="input-wrapper">
+                                    <input type="text" id="messageInput" placeholder="Écrivez votre message..."
+                                        onkeypress="handleKeyPress(event)">
+                                    <button class="emoji-btn">😊</button>
+                                </div>
+                                <!DOCTYPE html>
+                                <html lang="fr">
 
-            <div class="chat-input-area">
-                <button class="icon-btn attach-btn">📎</button>
-                <div class="input-wrapper">
-                    <input type="text" id="messageInput" placeholder="Écrivez votre message..."
-                        onkeypress="handleKeyPress(event)">
-                    <button class="emoji-btn">😊</button>
-                </div>
-                <button class="send-btn" onclick="sendMessage()">➤</button>
-            </div>
-        </main>
-    </div>
+                                <head>
+                                    <meta charset="UTF-8">
+                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                    <title>Messagerie - Voyage Élégance</title>
+                                    <link rel="stylesheet" href="style.css">
+                                    <link rel="stylesheet" href="chat.css">
+                                    <link rel="preconnect" href="https://fonts.googleapis.com">
+                                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                                    <link
+                                        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+                                        rel="stylesheet">
+                                </head>
 
-    <script>
-        // Theme Toggle (Same as main site)
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const html = document.documentElement;
+                                <body>
+                                    <!-- Navigation (Simplified for Chat) -->
+                                    <nav class="navbar chat-navbar">
+                                        <div class="container">
+                                            <div class="nav-brand">
+                                                <a href="acceuil.html" style="text-decoration: none; color: inherit;">
+                                                    <h1>✈️ Voyage Élégance</h1>
+                                                </a>
+                                            </div>
+                                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                                <button class="theme-toggle" id="themeToggle"
+                                                    aria-label="Changer de thème" title="Changer de thème">
+                                                    <span id="themeIcon">🌙</span>
+                                                </button>
+                                                <a href="acceuil.html" class="btn btn-primary"
+                                                    style="padding: 8px 20px; font-size: 0.9rem;">Retour</a>
+                                            </div>
+                                        </div>
+                                    </nav>
 
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        html.setAttribute('data-theme', savedTheme);
-        if (savedTheme === 'dark') {
-            themeIcon.textContent = '☀️';
-        } else {
-            themeIcon.textContent = '🌙';
-        }
+                                    <div class="messenger-container">
+                                        <!-- Sidebar -->
+                                        <aside class="chat-sidebar">
+                                            <div class="sidebar-header">
+                                                <h2>Discussions</h2>
+                                                <div class="search-bar">
+                                                    <input type="text" placeholder="Rechercher...">
+                                                    <span class="search-icon">🔍</span>
+                                                </div>
+                                            </div>
+                                            <div class="conversations-list">
+                                                <div class="conversation active"
+                                                    onclick="selectChat(this, 'Fatoumata Diallo')">
+                                                    <div class="avatar">
+                                                        <img src="https://ui-avatars.com/api/?name=Fatoumata+Diallo&background=random"
+                                                            alt="Fatoumata">
+                                                        <span class="status-dot online"></span>
+                                                    </div>
+                                                    <div class="conversation-info">
+                                                        <div class="conversation-top">
+                                                            <h3>Fatoumata Diallo</h3>
+                                                            <span class="time">10:30</span>
+                                                        </div>
+                                                        <p class="last-message">Bonjour, je voudrais des infos sur...
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation" onclick="selectChat(this, 'Amadou Bah')">
+                                                    <div class="avatar">
+                                                        <img src="https://ui-avatars.com/api/?name=Amadou+Bah&background=random"
+                                                            alt="Amadou">
+                                                        <span class="status-dot offline"></span>
+                                                    </div>
+                                                    <div class="conversation-info">
+                                                        <div class="conversation-top">
+                                                            <h3>Amadou Bah</h3>
+                                                            <span class="time">Hier</span>
+                                                        </div>
+                                                        <p class="last-message">Merci pour votre réponse !</p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation" onclick="selectChat(this, 'Mariam Camara')">
+                                                    <div class="avatar">
+                                                        <img src="https://ui-avatars.com/api/?name=Mariam+Camara&background=random"
+                                                            alt="Mariam">
+                                                        <span class="status-dot online"></span>
+                                                    </div>
+                                                    <div class="conversation-info">
+                                                        <div class="conversation-top">
+                                                            <header class="chat-header">
+                                                                <div class="chat-user-info">
+                                                                    <div class="avatar">
+                                                                        <img src="https://ui-avatars.com/api/?name=Fatoumata+Diallo&background=random"
+                                                                            alt="Current User" id="currentAvatar">
+                                                                        <span class="status-dot online"></span>
+                                                                    </div>
+                                                                    <div class="user-details">
+                                                                        <h3 id="currentName">Fatoumata Diallo</h3>
+                                                                        <span class="status-text">En ligne</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="chat-actions">
+                                                                    <button class="icon-btn">📞</button>
+                                                                    <button class="icon-btn">📹</button>
+                                                                    <button class="icon-btn">ℹ️</button>
+                                                                </div>
+                                                            </header>
 
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = html.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                                                            <div class="messages-area" id="messagesArea">
+                                                                <div class="message received">
+                                                                    <div class="message-content">
+                                                                        <p>Bonjour ! J'aimerais avoir plus
+                                                                            d'informations sur le voyage au Fouta
+                                                                            Djallon.</p>
+                                                                        <span class="message-time">10:30</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="message sent">
+                                                                    <div class="message-content">
+                                                                        <p>Bonjour Fatoumata ! Avec plaisir. Que
+                                                                            souhaitez-vous savoir exactement ?</p>
+                                                                        <span class="message-time">10:32</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="message received">
+                                                                    <div class="message-content">
+                                                                        <p>Est-ce que le transport est inclus dans le
+                                                                            prix de 500 000 GNF ?</p>
+                                                                        <span class="message-time">10:33</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
+                                                            <div class="chat-input-area">
+                                                                <button class="icon-btn attach-btn">📎</button>
+                                                                <div class="input-wrapper">
+                                                                    <input type="text" id="messageInput"
+                                                                        placeholder="Écrivez votre message..."
+                                                                        onkeypress="handleKeyPress(event)">
+                                                                    <button class="emoji-btn">😊</button>
+                                                                </div>
+                                                                <button class="send-btn"
+                                                                    onclick="sendMessage()">➤</button>
+                                                            </div>
+                                                            </main>
+                                                        </div>
 
-                themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            });
-        }
+                                                        <script>
+                                                            // Theme Toggle (Same as main site)
+                                                            const themeToggle = document.getElementById('themeToggle');
+                                                            const themeIcon = document.getElementById('themeIcon');
+                                                            const html = document.documentElement;
 
-        // Chat Functionality
-        const messagesArea = document.getElementById('messagesArea');
-        const messageInput = document.getElementById('messageInput');
-        const currentNameElement = document.getElementById('currentName');
-        const currentAvatarElement = document.getElementById('currentAvatar');
+                                                            const savedTheme = localStorage.getItem('theme') || 'light';
+                                                            html.setAttribute('data-theme', savedTheme);
+                                                            if (savedTheme === 'dark') {
+                                                                themeIcon.textContent = '☀️';
+                                                            } else {
+                                                                themeIcon.textContent = '🌙';
+                                                            }
 
-        function sendMessage() {
-            const text = messageInput.value.trim();
-            if (text) {
-                // Add sent message
-                const messageDiv = document.createElement('div');
-                messageDiv.className = 'message sent';
-                const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                                                            if (themeToggle) {
+                                                                themeToggle.addEventListener('click', () => {
+                                                                    const currentTheme = html.getAttribute('data-theme');
+                                                                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-                messageDiv.innerHTML = `
+                                                                    html.setAttribute('data-theme', newTheme);
+                                                                    localStorage.setItem('theme', newTheme);
+
+                                                                    themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+                                                                });
+                                                            }
+
+                                                            // Chat Functionality
+                                                            const messagesArea = document.getElementById('messagesArea');
+                                                            const messageInput = document.getElementById('messageInput');
+                                                            const currentNameElement = document.getElementById('currentName');
+                                                            const currentAvatarElement = document.getElementById('currentAvatar');
+
+                                                            // AI Responses Knowledge Base
+                                                            const aiKnowledge = {
+                                                                greetings: ['bonjour', 'salut', 'hello', 'coucou'],
+                                                                booking: ['réserver', 'reservation', 'reserver', 'booking', 'commander'],
+                                                                price: ['prix', 'tarif', 'coût', 'cout', 'combien'],
+                                                                destinations: ['destination', 'lieu', 'endroit', 'pays', 'ville'],
+                                                                contact: ['contact', 'téléphone', 'email', 'joindre', 'appeler'],
+                                                                thanks: ['merci', 'remercier', 'top', 'super']
+                                                            };
+
+                                                            function getAIResponse(text) {
+                                                                const lowerText = text.toLowerCase();
+
+                                                                if (aiKnowledge.greetings.some(word => lowerText.includes(word))) {
+                                                                    return "Bonjour ! Je suis l'Assistant IA de Voyage Élégance. Comment puis-je vous aider aujourd'hui ? 😊";
+                                                                }
+                                                                if (aiKnowledge.booking.some(word => lowerText.includes(word))) {
+                                                                    return "Pour effectuer une réservation, vous pouvez utiliser notre formulaire sur la page d'accueil ou me donner les détails ici (Destination, Dates, Nombre de personnes).";
+                                                                }
+                                                                if (aiKnowledge.price.some(word => lowerText.includes(word))) {
+                                                                    return "Nos tarifs varient selon la destination et la saison. Par exemple, le Fouta Djallon commence à 500 000 GNF. Quelle destination vous intéresse ?";
+                                                                }
+                                                                if (aiKnowledge.destinations.some(word => lowerText.includes(word))) {
+                                                                    return "Nous proposons plusieurs destinations magnifiques : Fouta Djallon, Îles de Loos, Kakoulima, Dakar, Abidjan et Paris. Laquelle vous fait rêver ?";
+                                                                }
+                                                                if (aiKnowledge.contact.some(word => lowerText.includes(word))) {
+                                                                    return "Vous pouvez nous joindre au +224 612 34 56 78 ou par email à contact@voyage-elegance.com. Nos bureaux sont situés à Conakry.";
+                                                                }
+                                                                if (aiKnowledge.thanks.some(word => lowerText.includes(word))) {
+                                                                    return "Je vous en prie ! N'hésitez pas si vous avez d'autres questions. Bon voyage ! ✈️";
+                                                                }
+
+                                                                return "Je ne suis pas sûr de comprendre. Pouvez-vous reformuler ? Je peux vous renseigner sur les destinations, les réservations et nos tarifs.";
+                                                            }
+
+                                                            function sendMessage() {
+                                                                const text = messageInput.value.trim();
+                                                                if (text) {
+                                                                    // Add sent message
+                                                                    const messageDiv = document.createElement('div');
+                                                                    messageDiv.className = 'message sent';
+                                                                    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+                                                                    messageDiv.innerHTML = `
                     <div class="message-content">
                         <p>${text}</p>
                         <span class="message-time">${time}</span>
                     </div>
                 `;
 
-                messagesArea.appendChild(messageDiv);
-                messageInput.value = '';
-                messagesArea.scrollTop = messagesArea.scrollHeight;
+                                                                    messagesArea.appendChild(messageDiv);
+                                                                    messageInput.value = '';
+                                                                    messagesArea.scrollTop = messagesArea.scrollHeight;
 
-                // Simulate reply after 1-2 seconds
-                setTimeout(() => {
-                    const replyDiv = document.createElement('div');
-                    replyDiv.className = 'message received';
-                    replyDiv.innerHTML = `
+                                                                    // Determine if we are chatting with AI
+                                                                    const isAI = currentNameElement.textContent === 'Assistant IA';
+                                                                    const responseDelay = isAI ? 600 : 1500; // AI is faster
+
+                                                                    // Simulate reply
+                                                                    setTimeout(() => {
+                                                                        const replyDiv = document.createElement('div');
+                                                                        replyDiv.className = 'message received';
+                                                                        replyDiv.innerHTML = `
                         <div class="message-content">
                             <div class="typing-indicator">
                                 <span></span><span></span><span></span>
                             </div>
                         </div>
                     `;
-                    messagesArea.appendChild(replyDiv);
-                    messagesArea.scrollTop = messagesArea.scrollHeight;
+                                                                        messagesArea.appendChild(replyDiv);
+                                                                        messagesArea.scrollTop = messagesArea.scrollHeight;
 
-                    setTimeout(() => {
-                        replyDiv.innerHTML = `
+                                                                        setTimeout(() => {
+                                                                            let responseText = "C'est noté ! Je vérifie cela pour vous.";
+
+                                                                            if (isAI) {
+                                                                                responseText = getAIResponse(text);
+                                                                            }
+
+                                                                            replyDiv.innerHTML = `
                             <div class="message-content">
-                                <p>C'est noté ! Je vérifie cela pour vous.</p>
+                                <p>${responseText}</p>
                                 <span class="message-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                             </div>
                         `;
-                        messagesArea.scrollTop = messagesArea.scrollHeight;
-                    }, 1500);
-                }, 1000);
-            }
-        }
+                                                                            messagesArea.scrollTop = messagesArea.scrollHeight;
+                                                                        }, responseDelay + 500);
+                                                                    }, responseDelay);
+                                                                }
+                                                            }
 
-        function handleKeyPress(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        }
+                                                            function handleKeyPress(e) {
+                                                                if (e.key === 'Enter') {
+                                                                    sendMessage();
+                                                                }
+                                                            }
 
-        function selectChat(element, name) {
-            // Update active state
-            document.querySelectorAll('.conversation').forEach(c => c.classList.remove('active'));
-            element.classList.add('active');
+                                                            function selectChat(element, name) {
+                                                                // Update active state
+                                                                document.querySelectorAll('.conversation').forEach(c => c.classList.remove('active'));
+                                                                element.classList.add('active');
 
-            // Update header
-            currentNameElement.textContent = name;
-            const img = element.querySelector('img').src;
-            currentAvatarElement.src = img;
+                                                                // Update header
+                                                                currentNameElement.textContent = name;
+                                                                const img = element.querySelector('img').src;
+                                                                currentAvatarElement.src = img;
 
-            // Clear messages (simulation)
-            messagesArea.innerHTML = `
+                                                                // Clear messages (simulation)
+                                                                let initialMessage = `Bonjour ! C'est ${name}.`;
+                                                                if (name === 'Assistant IA') {
+                                                                    initialMessage = "Bonjour ! Je suis l'intelligence artificielle de Voyage Élégance. Je suis là pour répondre à toutes vos questions 24h/24 et 7j/7. Comment puis-je vous aider ?";
+                                                                }
+
+                                                                messagesArea.innerHTML = `
                 <div class="message-divider">
                     <span>Aujourd'hui</span>
                 </div>
                 <div class="message received">
                     <div class="message-content">
-                        <p>Bonjour ! C'est ${name}.</p>
-                        <span class="message-time">10:00</span>
+                        <p>${initialMessage}</p>
+                        <span class="message-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                     </div>
                 </div>
             `;
-        }
-    </script>
-</body>
+                                                            }                    
+                                                        </script>
+                                </body>
 
-</html>
+                                </html>
