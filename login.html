@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Voyage Élégance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="login-page">
+
+
+    <div class="login-container">
+        <div class="login-wrapper">
+            <div class="login-left">
+                <div class="login-brand">
+                    <h1>✈️ Voyage Élégance</h1>
+                    <p class="brand-subtitle">Votre agence de voyages de confiance en Guinée</p>
+                </div>
+                <div class="login-illustration">
+                    <div class="illustration-circle circle-1"></div>
+                    <div class="illustration-circle circle-2"></div>
+                    <div class="illustration-circle circle-3"></div>
+                    <div class="illustration-icon">🌍</div>
+                </div>
+                <div class="login-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">🔒</span>
+                        <span>Connexion sécurisée</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <span>Accès rapide</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">💼</span>
+                        <span>Espace professionnel</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="login-right">
+                <div class="login-box">
+                    <div class="login-header">
+                        <h2>Connexion</h2>
+                        <p>Bienvenue ! Connectez-vous à votre compte</p>
+                    </div>
+
+                    <form class="login-form" id="loginForm">
+                        <div class="form-group">
+                            <label for="email">Adresse Email</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon">✉️</span>
+                                <input type="email" id="email" name="email" placeholder="votre.email@exemple.com"
+                                    required autocomplete="email">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Mot de passe</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon">🔒</span>
+                                <input type="password" id="password" name="password" placeholder="Votre mot de passe"
+                                    required autocomplete="current-password">
+                                <button type="button" class="password-toggle" id="passwordToggle"
+                                    aria-label="Afficher/Masquer le mot de passe">
+                                    <span class="eye-icon">👁️</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="remember" name="remember">
+                                <label for="remember">Se souvenir de moi</label>
+                            </div>
+                            <a href="reset-password.html" class="forgot-password">Mot de passe oublié ?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-login">
+                            <span>Se connecter</span>
+                            <span class="btn-loader"></span>
+                        </button>
+
+                        <div class="login-divider">
+                            <span>ou</span>
+                        </div>
+
+                        <div class="social-login">
+                            <button type="button" class="btn-social btn-google">
+                                <span class="social-icon">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#4285F4"
+                                            d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z" />
+                                        <path fill="#34A853"
+                                            d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z" />
+                                        <path fill="#FBBC05"
+                                            d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.951H.957C.348 6.174 0 7.55 0 9s.348 2.826.957 4.049l3.007-2.342z" />
+                                        <path fill="#EA4335"
+                                            d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.951L3.964 7.293C4.672 5.158 6.656 3.58 9 3.58z" />
+                                    </svg>
+                                </span>
+                                <span>Continuer avec Google</span>
+                            </button>
+                            <button type="button" class="btn-social btn-facebook">
+                                <span class="social-icon">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#1877F2"
+                                            d="M18 9c0-4.97-4.03-9-9-9S0 4.03 0 9c0 4.42 3.21 8.08 7.41 8.84v-6.26H5.34V9h2.07V7.01c0-2.05 1.22-3.18 3.09-3.18.9 0 1.83.16 1.83.16v2.01h-1.03c-1.01 0-1.33.63-1.33 1.27V9h2.27l-.36 2.58h-1.91v6.26C14.79 17.08 18 13.42 18 9z" />
+                                    </svg>
+                                </span>
+                                <span>Continuer avec Facebook</span>
+                            </button>
+                        </div>
+
+                        <div class="login-footer">
+                            <p>Vous n'avez pas de compte ? <a href="register.html">Créer un compte</a></p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="back-home">
+                    <a href="acceuil.html" class="back-link">
+                        <span>←</span>
+                        <span>Retour à l'accueil</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            // Close menu when clicking on a link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (navbar && window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else if (navbar) {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Password toggle
+        const passwordToggle = document.getElementById('passwordToggle');
+        const passwordInput = document.getElementById('password');
+
+        if (passwordToggle && passwordInput) {
+            passwordToggle.addEventListener('click', () => {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                passwordToggle.classList.toggle('active');
+            });
+        }
+
+        // Form submission
+        const loginForm = document.getElementById('loginForm');
+        if (loginForm) {
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                const submitBtn = loginForm.querySelector('.btn-login');
+                const loader = submitBtn ? submitBtn.querySelector('.btn-loader') : null;
+
+                // Validate required fields
+                if (!email || !password) {
+                    alert('Veuillez remplir tous les champs.');
+                    return;
+                }
+
+                // Validate email format
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Veuillez entrer une adresse email valide.');
+                    document.getElementById('email').focus();
+                    return;
+                }
+
+                // Show loading state
+                if (submitBtn && loader) {
+                    submitBtn.classList.add('loading');
+                    loader.style.display = 'block';
+                    submitBtn.disabled = true;
+                }
+
+                // Simulate API call
+                setTimeout(() => {
+                    if (submitBtn && loader) {
+                        btn.addEventListener('click', () => {
+                            const provider = btn.classList.contains('btn-google') ? 'Google' : 'Facebook';
+                            alert(`Connexion avec ${provider}\n\n(Note: Cette fonctionnalité nécessiterait une intégration avec les API de ${provider})`);
+                        });
+                    });
+
+                // Theme Toggle Functionality
+                const themeToggle = document.getElementById('themeToggle');
+                const themeIcon = document.getElementById('themeIcon');
+                const html = document.documentElement;
+
+                // Load saved theme or default to light
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                html.setAttribute('data-theme', savedTheme);
+                if (savedTheme === 'dark') {
+                    themeIcon.textContent = '☀️';
+                } else {
+                    themeIcon.textContent = '🌙';
+                }
+
+                // Toggle theme on button click
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', () => {
+                        const currentTheme = html.getAttribute('data-theme');
+                        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                        html.setAttribute('data-theme', newTheme);
+                        localStorage.setItem('theme', newTheme);
+
+                        // Update icon
+                        themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+                    });
+                }
+    </script>
+</body>
+
+</html>
