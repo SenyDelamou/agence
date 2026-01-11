@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi de Réservation - Voyage Élégance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar chat-navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="acceuil.html" style="text-decoration: none; color: inherit;">
+                    <h1>✈️ Voyage Élégance</h1>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="acceuil.html#accueil">Accueil</a></li>
+                <li><a href="acceuil.html#destinations">Destinations</a></li>
+                <li><a href="deals.html">Offres</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="acceuil.html#contact">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <a href="login.html" class="login-btn">Connexion</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <span id="themeIcon">🌙</span>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="booking-hero">
+        <div class="booking-hero-overlay"></div>
+        <div class="booking-hero-content">
+            <h1>📍 Suivi de Votre Réservation</h1>
+            <p>Suivez l'état de votre voyage en temps réel</p>
+        </div>
+    </section>
+
+    <!-- Booking Tracker Section -->
+    <section class="booking-tracker-main">
+        <div class="container">
+            <!-- Auth Check -->
+            <div id="notLoggedIn" class="auth-message" style="display: none;">
+                <h2>🔒 Veuillez vous connecter</h2>
+                <p>Vous devez être connecté pour voir vos réservations</p>
+                <a href="login.html" class="btn btn-primary">Se Connecter</a>
+            </div>
+
+            <!-- Booking List -->
+            <div id="bookingContent" style="display: none;">
+                <!-- Search/Filter -->
+                <div class="booking-filter">
+                    <input type="text" id="bookingSearch" placeholder="🔍 Rechercher une réservation..." class="search-input">
+                    <select id="bookingStatus" class="filter-select">
+                        <option value="">Tous les statuts</option>
+                        <option value="confirmed">✅ Confirmé</option>
+                        <option value="pending">⏳ En attente</option>
+                        <option value="cancelled">❌ Annulé</option>
+                        <option value="completed">✔️ Complété</option>
+                    </select>
+                </div>
+
+                <!-- Bookings Grid -->
+                <div id="bookingsList" class="bookings-grid">
+                    <!-- Bookings will be loaded here -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="emptyState" class="empty-state" style="display: none;">
+                    <h3>📭 Aucune réservation trouvée</h3>
+                    <p>Vous n'avez pas encore de réservations. Commencez votre voyage avec nous!</p>
+                    <a href="acceuil.html#reservation" class="btn btn-primary">Faire une réservation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>À Propos</h4>
+                    <ul>
+                        <li><a href="#">Notre Histoire</a></li>
+                        <li><a href="#">Équipe</a></li>
+                        <li><a href="#">Carrières</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Aide</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="terms.html">Conditions</a></li>
+                        <li><a href="terms.html">Confidentialité</a></li>
+                        <li><a href="terms.html">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Voyage Élégance. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="messenger.html" class="floating-chat-btn">💬</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginBtn = document.querySelector('.login-btn');
+            const userSession = localStorage.getItem('userSession');
+
+            if (userSession) {
+                loginBtn.textContent = 'Mon Profil';
+                loginBtn.href = 'profile.html';
+                loadBookings();
+            } else {
+                loginBtn.textContent = 'Connexion';
+                loginBtn.href = 'login.html';
+                document.getElementById('notLoggedIn').style.display = 'block';
+            }
+
+            // Theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const html = document.documentElement;
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            });
+
+            // Mobile menu
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+            }
+
+            // Filter functionality
+            const bookingSearch = document.getElementById('bookingSearch');
+            const bookingStatus = document.getElementById('bookingStatus');
+            if (bookingSearch) {
+                bookingSearch.addEventListener('input', filterBookings);
+                bookingStatus.addEventListener('change', filterBookings);
+            }
+        });
+
+        function loadBookings() {
+            const mockBookings = [
+                {
+                    id: 'VE-001',
+                    destination: 'Îles de Loos',
+                    date: '15-22 Février 2026',
+                    price: '720 000 GNF',
+                    status: 'confirmed',
+                    progress: 25,
+                    details: {
+                        hotel: 'Bungalow Paradis',
+                        guests: 2,
+                        transport: 'Vol inclus'
+                    }
+                },
+                {
+                    id: 'VE-002',
+                    destination: 'Fouta Djallon',
+                    date: '01-08 Mars 2026',
+                    price: '1 100 000 GNF',
+                    status: 'pending',
+                    progress: 10,
+                    details: {
+                        hotel: 'Lodge Montagne',
+                        guests: 3,
+                        transport: 'Vol + Transport local'
+                    }
+                },
+                {
+                    id: 'VE-003',
+                    destination: 'Paris',
+                    date: '20-27 Avril 2026',
+                    price: '4 225 000 GNF',
+                    status: 'confirmed',
+                    progress: 60,
+                    details: {
+                        hotel: 'Hôtel 5* Marais',
+                        guests: 2,
+                        transport: 'Vol A/R'
+                    }
+                },
+                {
+                    id: 'VE-004',
+                    destination: 'Dakar Weekend',
+                    date: '12-14 Janvier 2026',
+                    price: '1 050 000 GNF',
+                    status: 'completed',
+                    progress: 100,
+                    details: {
+                        hotel: 'Hôtel Océan Atlantique',
+                        guests: 2,
+                        transport: 'Vol + Hôtel'
+                    }
+                }
+            ];
+
+            const bookingsList = document.getElementById('bookingsList');
+            const emptyState = document.getElementById('emptyState');
+            const bookingContent = document.getElementById('bookingContent');
+
+            if (mockBookings.length === 0) {
+                emptyState.style.display = 'block';
+                bookingContent.style.display = 'block';
+            } else {
+                bookingContent.style.display = 'block';
+                displayBookings(mockBookings);
+            }
+        }
+
+        function displayBookings(bookings) {
+            const bookingsList = document.getElementById('bookingsList');
+            bookingsList.innerHTML = '';
+
+            bookings.forEach(booking => {
+                const statusEmoji = {
+                    confirmed: '✅',
+                    pending: '⏳',
+                    cancelled: '❌',
+                    completed: '✔️'
+                }[booking.status];
+
+                const card = document.createElement('div');
+                card.className = 'booking-card';
+                card.setAttribute('data-status', booking.status);
+                card.innerHTML = `
+                    <div class="booking-header">
+                        <div>
+                            <h3>${booking.destination}</h3>
+                            <p class="booking-id">Réservation #${booking.id}</p>
+                        </div>
+                        <span class="booking-status">${statusEmoji} ${booking.status.toUpperCase()}</span>
+                    </div>
+                    
+                    <div class="booking-details">
+                        <div class="detail-item">
+                            <span class="detail-label">📅 Dates</span>
+                            <span>${booking.date}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">🏨 Hébergement</span>
+                            <span>${booking.details.hotel}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">👥 Voyageurs</span>
+                            <span>${booking.details.guests} personne(s)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">🚗 Transport</span>
+                            <span>${booking.details.transport}</span>
+                        </div>
+                    </div>
+
+                    <div class="booking-progress">
+                        <p class="progress-label">Avancement du voyage</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${booking.progress}%"></div>
+                        </div>
+                        <p class="progress-text">${booking.progress}% complété</p>
+                    </div>
+
+                    <div class="booking-footer">
+                        <span class="booking-price">${booking.price}</span>
+                        <div class="booking-actions">
+                            <button class="btn-small" onclick="viewDetails('${booking.id}')">📄 Détails</button>
+                            <button class="btn-small" onclick="modifyBooking('${booking.id}')">✏️ Modifier</button>
+                            <button class="btn-small" onclick="contactSupport('${booking.id}')">💬 Support</button>
+                        </div>
+                    </div>
+                `;
+                bookingsList.appendChild(card);
+            });
+        }
+
+        function filterBookings() {
+            const searchTerm = document.getElementById('bookingSearch').value.toLowerCase();
+            const status = document.getElementById('bookingStatus').value;
+            const cards = document.querySelectorAll('.booking-card');
+
+            cards.forEach(card => {
+                const matchesSearch = card.textContent.toLowerCase().includes(searchTerm);
+                const matchesStatus = !status || card.getAttribute('data-status') === status;
+
+                if (matchesSearch && matchesStatus) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function viewDetails(bookingId) {
+            alert(`Détails complets de la réservation ${bookingId}`);
+        }
+
+        function modifyBooking(bookingId) {
+            alert(`Modification de la réservation ${bookingId}`);
+        }
+
+        function contactSupport(bookingId) {
+            alert(`Contact support pour ${bookingId}`);
+            window.location.href = 'video-call.html';
+        }
+    </script>
+
+    <style>
+        .booking-hero {
+            position: relative;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=2000&auto=format&fit=crop') center/cover;
+            color: white;
+            text-align: center;
+            margin-top: 80px;
+            overflow: hidden;
+        }
+
+        .booking-hero-content {
+            z-index: 1;
+            animation: slideUp 0.6s ease;
+        }
+
+        .booking-hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .booking-tracker-main {
+            padding: 60px 20px;
+            background: var(--bg-light);
+            min-height: calc(100vh - 80px);
+        }
+
+        .auth-message {
+            background: white;
+            padding: 60px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] .auth-message {
+            background: #1e293b;
+        }
+
+        .auth-message h2 {
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        [data-theme="dark"] .auth-message h2 {
+            color: #f1f5f9;
+        }
+
+        .auth-message p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        .booking-filter {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .search-input, .filter-select {
+            padding: 12px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
+            flex: 1;
+            min-width: 200px;
+            background: white;
+            color: #2d3748;
+        }
+
+        [data-theme="dark"] .search-input,
+        [data-theme="dark"] .filter-select {
+            background: #1e293b;
+            color: #f1f5f9;
+            border-color: #475569;
+        }
+
+        .bookings-grid {
+            display: grid;
+            gap: 25px;
+        }
+
+        .booking-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .booking-card {
+            background: #1e293b;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .booking-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .booking-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+        }
+
+        .booking-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .booking-id {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .booking-status {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .booking-details {
+            padding: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .detail-label {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .detail-item span:last-child {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        [data-theme="dark"] .detail-item span:last-child {
+            color: #f1f5f9;
+        }
+
+        .booking-progress {
+            padding: 0 25px;
+            margin-bottom: 25px;
+        }
+
+        .progress-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        [data-theme="dark"] .progress-bar {
+            background: #334155;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .booking-footer {
+            padding: 20px 25px 25px;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        [data-theme="dark"] .booking-footer {
+            border-top-color: #334155;
+        }
+
+        .booking-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .booking-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-small {
+            padding: 8px 12px;
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .btn-small {
+            background: #0f172a;
+            border-color: #475569;
+            color: #f1f5f9;
+        }
+
+        .btn-small:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] .empty-state {
+            background: #1e293b;
+        }
+
+        .empty-state h3 {
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        [data-theme="dark"] .empty-state h3 {
+            color: #f1f5f9;
+        }
+
+        .empty-state p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .booking-hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .booking-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .booking-details {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-footer {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .booking-actions {
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            .btn-small {
+                flex: 1;
+                min-width: 100px;
+            }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body>
+
+</html>

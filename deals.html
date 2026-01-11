@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offres & Promotions - Voyage Élégance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar chat-navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="acceuil.html" style="text-decoration: none; color: inherit;">
+                    <h1>✈️ Voyage Élégance</h1>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="acceuil.html#accueil">Accueil</a></li>
+                <li><a href="acceuil.html#destinations">Destinations</a></li>
+                <li><a href="deals.html">Offres Spéciales</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="acceuil.html#contact">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <a href="login.html" class="login-btn">Connexion</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <span id="themeIcon">🌙</span>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="deals-hero">
+        <div class="deals-hero-overlay"></div>
+        <div class="deals-hero-content">
+            <h1>🎉 Offres & Promotions Exclusives</h1>
+            <p>Profitez de nos meilleures offres du moment</p>
+        </div>
+    </section>
+
+    <!-- Deals Section -->
+    <section class="deals-main">
+        <div class="container">
+            <!-- Filter Section -->
+            <div class="deals-filter">
+                <input type="text" id="dealsSearch" placeholder="🔍 Rechercher une offre..." class="search-input">
+                <select id="dealsCategory" class="filter-select">
+                    <option value="">Toutes les catégories</option>
+                    <option value="flight">Vols</option>
+                    <option value="hotel">Hôtels</option>
+                    <option value="package">Forfaits</option>
+                    <option value="tour">Circuits</option>
+                </select>
+            </div>
+
+            <!-- Deals Grid -->
+            <div class="deals-grid">
+                <!-- Deal 1 -->
+                <div class="deal-card" data-category="package">
+                    <div class="deal-badge">-40%</div>
+                    <div class="deal-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <span style="font-size: 60px; display: flex; align-items: center; justify-content: center; height: 100%;">🏝️</span>
+                    </div>
+                    <div class="deal-content">
+                        <h3>Îles de Loos - Forfait Paradisiaque</h3>
+                        <p>5 jours/4 nuits en bungalow de luxe avec petit-déjeuner</p>
+                        <div class="deal-rating">⭐⭐⭐⭐⭐ (328 avis)</div>
+                        <div class="deal-price">
+                            <span class="old-price">1 200 000 GNF</span>
+                            <span class="new-price">720 000 GNF</span>
+                        </div>
+                        <div class="deal-features">
+                            <span class="feature">✈️ Vol inclus</span>
+                            <span class="feature">🍽️ Repas</span>
+                            <span class="feature">🎫 Activités</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="window.location.href='acceuil.html#reservation'">Réserver</button>
+                    </div>
+                </div>
+
+                <!-- Deal 2 -->
+                <div class="deal-card" data-category="flight">
+                    <div class="deal-badge">-35%</div>
+                    <div class="deal-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <span style="font-size: 60px; display: flex; align-items: center; justify-content: center; height: 100%;">✈️</span>
+                    </div>
+                    <div class="deal-content">
+                        <h3>Vol Paris aller-retour</h3>
+                        <p>Paris CDG/Conakry avec repas et bagages inclus</p>
+                        <div class="deal-rating">⭐⭐⭐⭐ (256 avis)</div>
+                        <div class="deal-price">
+                            <span class="old-price">6 500 000 GNF</span>
+                            <span class="new-price">4 225 000 GNF</span>
+                        </div>
+                        <div class="deal-features">
+                            <span class="feature">🧳 Bagages</span>
+                            <span class="feature">🍽️ Repas</span>
+                            <span class="feature">💺 Confort</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="window.location.href='acceuil.html#reservation'">Réserver</button>
+                    </div>
+                </div>
+
+                <!-- Deal 3 -->
+                <div class="deal-card" data-category="hotel">
+                    <div class="deal-badge">-50%</div>
+                    <div class="deal-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <span style="font-size: 60px; display: flex; align-items: center; justify-content: center; height: 100%;">🏨</span>
+                    </div>
+                    <div class="deal-content">
+                        <h3>Hôtel Abidjan 5 étoiles</h3>
+                        <p>Suite déluxe avec vue sur l'océan - Petit-déj inclus</p>
+                        <div class="deal-rating">⭐⭐⭐⭐⭐ (412 avis)</div>
+                        <div class="deal-price">
+                            <span class="old-price">800 000 GNF/nuit</span>
+                            <span class="new-price">400 000 GNF/nuit</span>
+                        </div>
+                        <div class="deal-features">
+                            <span class="feature">🏊 Piscine</span>
+                            <span class="feature">🍽️ Restaurant</span>
+                            <span class="feature">🧖 Spa</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="window.location.href='acceuil.html#reservation'">Réserver</button>
+                    </div>
+                </div>
+
+                <!-- Deal 4 -->
+                <div class="deal-card" data-category="tour">
+                    <div class="deal-badge">-45%</div>
+                    <div class="deal-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                        <span style="font-size: 60px; display: flex; align-items: center; justify-content: center; height: 100%;">🎒</span>
+                    </div>
+                    <div class="deal-content">
+                        <h3>Circuit Fouta Djallon</h3>
+                        <p>8 jours de découverte - Guide expert inclus</p>
+                        <div class="deal-rating">⭐⭐⭐⭐⭐ (189 avis)</div>
+                        <div class="deal-price">
+                            <span class="old-price">2 000 000 GNF</span>
+                            <span class="new-price">1 100 000 GNF</span>
+                        </div>
+                        <div class="deal-features">
+                            <span class="feature">🚗 Transport</span>
+                            <span class="feature">🏨 Logement</span>
+                            <span class="feature">👨‍🏫 Guide</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="window.location.href='acceuil.html#reservation'">Réserver</button>
+                    </div>
+                </div>
+
+                <!-- Deal 5 -->
+                <div class="deal-card" data-category="package">
+                    <div class="deal-badge">-30%</div>
+                    <div class="deal-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                        <span style="font-size: 60px; display: flex; align-items: center; justify-content: center; height: 100%;">🌴</span>
+                    </div>
+                    <div class="deal-content">
+                        <h3>Dakar Luxe Weekend</h3>
+                        <p>3 jours/2 nuits en hôtel 4 étoiles</p>
+                        <div class="deal-rating">⭐⭐⭐⭐ (234 avis)</div>
+                        <div class="deal-price">
+                            <span class="old-price">1 500 000 GNF</span>
+                            <span class="new-price">1 050 000 GNF</span>
+                        </div>
+                        <div class="deal-features">
+                            <span class="feature">✈️ Vol</span>
+                            <span class="feature">🏨 Hôtel</span>
+                            <span class="feature">🍽️ Repas</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="window.location.href='acceuil.html#reservation'">Réserver</button>
+                    </div>
+                </div>
+
+                <!-- Deal 6 -->
+                <div class="deal-card" data-category="hotel">
+                    <div class="deal-badge">-25%</div>
+                    <div class="deal-image" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);">
+                        <span style="font-size: 60px; display: flex; align-items: center; justify-content: center; height: 100%;">🏛️</span>
+                    </div>
+                    <div class="deal-content">
+                        <h3>Kakoulima Resort</h3>
+                        <p>Complexe tout-compris en montagne - Spa inclus</p>
+                        <div class="deal-rating">⭐⭐⭐⭐⭐ (367 avis)</div>
+                        <div class="deal-price">
+                            <span class="old-price">600 000 GNF/nuit</span>
+                            <span class="new-price">450 000 GNF/nuit</span>
+                        </div>
+                        <div class="deal-features">
+                            <span class="feature">🏊 Piscine</span>
+                            <span class="feature">🧖 Spa</span>
+                            <span class="feature">🥾 Rando</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="window.location.href='acceuil.html#reservation'">Réserver</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter Section -->
+            <div class="deals-newsletter">
+                <h3>📧 Recevez nos meilleures offres par email</h3>
+                <p>Soyez le premier à connaître nos nouveaux deals</p>
+                <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                    <input type="email" placeholder="Votre email..." required>
+                    <button type="submit" class="btn btn-primary">S'inscrire</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>À Propos</h4>
+                    <ul>
+                        <li><a href="#">Notre Histoire</a></li>
+                        <li><a href="#">Équipe</a></li>
+                        <li><a href="#">Carrières</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Aide</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="terms.html">Conditions</a></li>
+                        <li><a href="terms.html">Confidentialité</a></li>
+                        <li><a href="terms.html">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Voyage Élégance. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="messenger.html" class="floating-chat-btn">💬</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginBtn = document.querySelector('.login-btn');
+            const userSession = localStorage.getItem('userSession');
+
+            if (userSession) {
+                loginBtn.textContent = 'Mon Profil';
+                loginBtn.href = 'profile.html';
+            } else {
+                loginBtn.textContent = 'Connexion';
+                loginBtn.href = 'login.html';
+            }
+
+            // Theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const html = document.documentElement;
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            });
+
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+            }
+
+            // Filter functionality
+            const dealsSearch = document.getElementById('dealsSearch');
+            const dealsCategory = document.getElementById('dealsCategory');
+            const dealCards = document.querySelectorAll('.deal-card');
+
+            function filterDeals() {
+                const searchTerm = dealsSearch.value.toLowerCase();
+                const selectedCategory = dealsCategory.value;
+
+                dealCards.forEach(card => {
+                    const matchesSearch = card.textContent.toLowerCase().includes(searchTerm);
+                    const matchesCategory = !selectedCategory || card.dataset.category === selectedCategory;
+
+                    if (matchesSearch && matchesCategory) {
+                        card.style.display = '';
+                        card.style.animation = 'fadeIn 0.3s ease';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            dealsSearch.addEventListener('input', filterDeals);
+            dealsCategory.addEventListener('change', filterDeals);
+        });
+
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            alert('Merci! Vous recevrez nos meilleures offres par email.');
+            event.target.reset();
+        }
+    </script>
+
+    <style>
+        .deals-hero {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(240, 147, 251, 0.85) 0%, rgba(245, 87, 108, 0.85) 100%), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=2000&auto=format&fit=crop') center/cover;
+            color: white;
+            text-align: center;
+            margin-top: 80px;
+            overflow: hidden;
+        }
+
+        .deals-hero-content {
+            z-index: 1;
+            animation: slideUp 0.6s ease;
+        }
+
+        .deals-hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .deals-main {
+            padding: 60px 20px;
+            background: var(--bg-light);
+        }
+
+        .deals-filter {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .search-input, .filter-select {
+            padding: 12px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
+            flex: 1;
+            min-width: 200px;
+            background: white;
+            color: #2d3748;
+        }
+
+        [data-theme="dark"] .search-input,
+        [data-theme="dark"] .filter-select {
+            background: #1e293b;
+            color: #f1f5f9;
+            border-color: #475569;
+        }
+
+        .deals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .deal-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        [data-theme="dark"] .deal-card {
+            background: #1e293b;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .deal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .deal-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            z-index: 10;
+            font-size: 1.1rem;
+        }
+
+        .deal-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .deal-content {
+            padding: 25px;
+        }
+
+        .deal-content h3 {
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+        }
+
+        [data-theme="dark"] .deal-content h3 {
+            color: #f1f5f9;
+        }
+
+        .deal-content p {
+            color: var(--text-light);
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .deal-rating {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #f5a623;
+        }
+
+        .deal-price {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .new-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f5576c;
+        }
+
+        .deal-features {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .feature {
+            background: #f7fafc;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+        }
+
+        [data-theme="dark"] .feature {
+            background: #0f172a;
+            color: #f1f5f9;
+        }
+
+        .deals-newsletter {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .deals-newsletter h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .deals-newsletter p {
+            margin-bottom: 25px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .newsletter-form .btn {
+            min-width: 150px;
+        }
+
+        @media (max-width: 768px) {
+            .deals-hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .deals-filter {
+                flex-direction: column;
+            }
+
+            .deals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .deals-newsletter {
+                padding: 30px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body>
+
+</html>

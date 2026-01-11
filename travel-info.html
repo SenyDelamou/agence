@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informations Pratiques - Voyage Élégance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar chat-navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="acceuil.html" style="text-decoration: none; color: inherit;">
+                    <h1>✈️ Voyage Élégance</h1>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="acceuil.html#accueil">Accueil</a></li>
+                <li><a href="acceuil.html#destinations">Destinations</a></li>
+                <li><a href="deals.html">Offres</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="acceuil.html#contact">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <a href="login.html" class="login-btn">Connexion</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <span id="themeIcon">🌙</span>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="info-hero">
+        <div class="info-hero-overlay"></div>
+        <div class="info-hero-content">
+            <h1>ℹ️ Informations Pratiques</h1>
+            <p>Tout ce que vous devez savoir avant de partir</p>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-main">
+        <div class="container">
+            <!-- Destination Info Grid -->
+            <div class="destinations-info">
+                <!-- Guinée -->
+                <div class="info-card">
+                    <div class="info-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <span class="flag">🇬🇳</span>
+                        <h2>Guinée</h2>
+                    </div>
+                    <div class="info-body">
+                        <div class="info-item">
+                            <h4>📋 Visa</h4>
+                            <p>Visa requis pour les ressortissants français. À demander auprès de l'ambassade. Délai: 7-10 jours.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>💉 Vaccinations</h4>
+                            <p>Recommandées: Fièvre jaune, Hépatite A, Typhoïde, Tétanos. Paludisme: antimalariques conseillés.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>🗓️ Meilleure période</h4>
+                            <p>Novembre à mars (saison sèche). Température: 20-35°C. Éviter mai-septembre (mousson).</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>💰 Monnaie</h4>
+                            <p>Franc guinéen (GNF). 1 EUR ≈ 11 000 GNF. Distributeurs disponibles à Conakry.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>⚡ Voltage</h4>
+                            <p>220V, 50Hz. Prise de type C et E. Adaptateur recommandé.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>🌐 Langue</h4>
+                            <p>Français (officielle). Peul, Mandingue et Susu parlés localement.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sénégal -->
+                <div class="info-card">
+                    <div class="info-header" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <span class="flag">🇸🇳</span>
+                        <h2>Sénégal</h2>
+                    </div>
+                    <div class="info-body">
+                        <div class="info-item">
+                            <h4>📋 Visa</h4>
+                            <p>Pas de visa pour les ressortissants français. Passeport valide 6 mois minimum requis.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>💉 Vaccinations</h4>
+                            <p>Recommandées: Fièvre jaune, Hépatite A, Typhoïde. Paludisme: risque modéré à Dakar.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>🗓️ Meilleure période</h4>
+                            <p>Novembre à avril (saison sèche). Température: 25-30°C. Idéal pour les plages.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>💰 Monnaie</h4>
+                            <p>Franc CFA sénégalais (XOF). 1 EUR ≈ 655 XOF. Équivalent du franc français.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>⚡ Voltage</h4>
+                            <p>220V, 50Hz. Prise de type C et E. Même adaptateur qu'en France.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>🌐 Langue</h4>
+                            <p>Français (officielle). Wolof largement parlé. Anglais dans les zones touristiques.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Côte d'Ivoire -->
+                <div class="info-card">
+                    <div class="info-header" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <span class="flag">🇨🇮</span>
+                        <h2>Côte d'Ivoire</h2>
+                    </div>
+                    <div class="info-body">
+                        <div class="info-item">
+                            <h4>📋 Visa</h4>
+                            <p>Visa recommandé pour les français. À demander à l'avance. Obtention en 5 jours.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>💉 Vaccinations</h4>
+                            <p>Fièvre jaune fortement recommandée. Hépatite A, Typhoïde. Paludisme actif.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>🗓️ Meilleure période</h4>
+                            <p>Novembre à mars. Température: 25-35°C. Saison sèche idéale pour les visites.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>💰 Monnaie</h4>
+                            <p>Franc CFA ouest-africain (XOF). 1 EUR ≈ 655 XOF. Même parité que Sénégal.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>⚡ Voltage</h4>
+                            <p>220V, 50Hz. Prise de type C et E. Adaptateur standard compatible.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>🌐 Langue</h4>
+                            <p>Français (officielle). Dioula et Baoulé parlés. Anglais limite hors Abidjan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- France (Paris) -->
+                <div class="info-card">
+                    <div class="info-header" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <span class="flag">🇫🇷</span>
+                        <h2>France (Paris)</h2>
+                    </div>
+                    <div class="info-body">
+                        <div class="info-item">
+                            <h4>📋 Visa</h4>
+                            <p>Pas de visa pour les ressortissants de l'UE/EEE. Carte d'identité suffisante.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>💉 Vaccinations</h4>
+                            <p>Aucune vaccination obligatoire. Vaccinations standards recommandées (tétanos, etc).</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>🗓️ Meilleure période</h4>
+                            <p>Avril-mai et septembre-octobre. Température: 10-25°C. Moins de touristes hors été.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>💰 Monnaie</h4>
+                            <p>Euro (EUR). Même monnaie que la Guinée pour les transactions. Tarifs européens.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>⚡ Voltage</h4>
+                            <p>230V, 50Hz. Prise de type C et E. Norme française/européenne.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>🌐 Langue</h4>
+                            <p>Français. Anglais parlé dans les zones touristiques et commerciales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Travel Tips -->
+            <section class="travel-tips">
+                <h2>💡 Conseils de Voyage Essentiels</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">📞</div>
+                        <h3>Communication</h3>
+                        <p>Achetez une carte SIM locale. Orange, MTN disponibles. Forfaits data affodables. Roaming international coûteux.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">🚕</div>
+                        <h3>Transport Local</h3>
+                        <p>Taxis sans compteur: négociez le prix avant. Uber disponible à Conakry et Dakar. Bus longue distance: confortables mais lents.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">🏥</div>
+                        <h3>Santé</h3>
+                        <p>Pharmacies disponibles en ville. Eau du robinet: à éviter. Eau minérale recommandée. Assurance voyage fortement conseillée.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">🏦</div>
+                        <h3>Argent</h3>
+                        <p>Retirez de l'argent aux distributeurs. Cartes bancaires acceptées en ville. Emportez du cash pour zones rurales.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">🎒</div>
+                        <h3>Bagage</h3>
+                        <p>Vêtements légers et confortables. Crème solaire indispensable. Moustiquaire légère. Vérifiez limite bagages aériens.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">🤝</div>
+                        <h3>Culture</h3>
+                        <p>Respectez les coutumes locales. Photographe: demandez permission. Pourboires: 5-10%. Tenues décentes aux lieu de culte.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Emergency Contacts -->
+            <section class="emergency-section">
+                <h2>🆘 Contacts d'Urgence</h2>
+                <div class="emergency-grid">
+                    <div class="emergency-card">
+                        <h3>🇬🇳 Guinée</h3>
+                        <p><strong>Police:</strong> 17</p>
+                        <p><strong>Ambulance:</strong> 19</p>
+                        <p><strong>Pompiers:</strong> 18</p>
+                        <p><strong>Ambassade France:</strong> +224 630 40 00</p>
+                    </div>
+                    <div class="emergency-card">
+                        <h3>🇸🇳 Sénégal</h3>
+                        <p><strong>Police:</strong> 17</p>
+                        <p><strong>Ambulance:</strong> 15</p>
+                        <p><strong>Pompiers:</strong> 18</p>
+                        <p><strong>Ambassade France:</strong> +221 33 889 67 00</p>
+                    </div>
+                    <div class="emergency-card">
+                        <h3>🇨🇮 Côte d'Ivoire</h3>
+                        <p><strong>Police:</strong> 17</p>
+                        <p><strong>Ambulance:</strong> 15</p>
+                        <p><strong>Pompiers:</strong> 18</p>
+                        <p><strong>Ambassade France:</strong> +225 22 40 45 00</p>
+                    </div>
+                    <div class="emergency-card">
+                        <h3>🇫🇷 France</h3>
+                        <p><strong>Police:</strong> 17</p>
+                        <p><strong>Ambulance:</strong> 15</p>
+                        <p><strong>Pompiers:</strong> 18</p>
+                        <p><strong>SAMU:</strong> 15</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>À Propos</h4>
+                    <ul>
+                        <li><a href="#">Notre Histoire</a></li>
+                        <li><a href="#">Équipe</a></li>
+                        <li><a href="#">Carrières</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Aide</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="terms.html">Conditions</a></li>
+                        <li><a href="terms.html">Confidentialité</a></li>
+                        <li><a href="terms.html">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Voyage Élégance. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="messenger.html" class="floating-chat-btn">💬</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginBtn = document.querySelector('.login-btn');
+            const userSession = localStorage.getItem('userSession');
+
+            if (userSession) {
+                loginBtn.textContent = 'Mon Profil';
+                loginBtn.href = 'profile.html';
+            } else {
+                loginBtn.textContent = 'Connexion';
+                loginBtn.href = 'login.html';
+            }
+
+            // Theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const html = document.documentElement;
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            });
+
+            // Mobile menu
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+
+    <style>
+        .info-hero {
+            position: relative;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=2000&auto=format&fit=crop') center/cover;
+            color: white;
+            text-align: center;
+            margin-top: 80px;
+            overflow: hidden;
+        }
+
+        .info-hero-content {
+            z-index: 1;
+            animation: slideUp 0.6s ease;
+        }
+
+        .info-hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .info-main {
+            padding: 60px 20px;
+            background: var(--bg-light);
+        }
+
+        .destinations-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .info-card {
+            background: #1e293b;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-header {
+            padding: 25px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .flag {
+            font-size: 3rem;
+        }
+
+        .info-header h2 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .info-body {
+            padding: 25px;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        [data-theme="dark"] .info-item {
+            border-bottom-color: #334155;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .info-item h4 {
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        [data-theme="dark"] .info-item h4 {
+            color: #f1f5f9;
+        }
+
+        .info-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .travel-tips {
+            margin-bottom: 60px;
+        }
+
+        .travel-tips h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-dark);
+        }
+
+        [data-theme="dark"] .travel-tips h2 {
+            color: #f1f5f9;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tip-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .tip-card {
+            background: #1e293b;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tip-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .tip-card h3 {
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        [data-theme="dark"] .tip-card h3 {
+            color: #f1f5f9;
+        }
+
+        .tip-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .emergency-section {
+            margin-bottom: 40px;
+        }
+
+        .emergency-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-dark);
+        }
+
+        [data-theme="dark"] .emergency-section h2 {
+            color: #f1f5f9;
+        }
+
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .emergency-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.3);
+        }
+
+        .emergency-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .emergency-card p {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .info-hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .destinations-info {
+                grid-template-columns: 1fr;
+            }
+
+            .tips-grid,
+            .emergency-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body>
+
+</html>
