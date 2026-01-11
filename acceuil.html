@@ -136,7 +136,7 @@
                         <div class="destination-price">À partir de 500 000 GNF</div>
                         <p>Découvrez les magnifiques paysages montagneux, les cascades et la culture peule du Fouta
                             Djallon.</p>
-                        <a href="#reservation" class="btn btn-secondary">Réserver</a>
+                        <button class="btn btn-secondary reserve-btn" onclick="handleReservation(event)">Réserver</button>
                     </div>
                 </div>
                 <div class="destination-card">
@@ -150,7 +150,7 @@
                         <div class="destination-price">À partir de 750 000 GNF</div>
                         <p>Plages de sable blanc, eaux turquoise et nature préservée sur les îles de Loos au large de
                             Conakry.</p>
-                        <a href="#reservation" class="btn btn-secondary">Réserver</a>
+                        <button class="btn btn-secondary reserve-btn" onclick="handleReservation(event)">Réserver</button>
                     </div>
                 </div>
                 <div class="destination-card">
@@ -163,7 +163,7 @@
                     <div class="destination-info">
                         <div class="destination-price">À partir de 400 000 GNF</div>
                         <p>Randonnée sur la montagne Kakoulima, site sacré offrant une vue panoramique sur Conakry.</p>
-                        <a href="#reservation" class="btn btn-secondary">Réserver</a>
+                        <button class="btn btn-secondary reserve-btn" onclick="handleReservation(event)">Réserver</button>
                     </div>
                 </div>
                 <div class="destination-card">
@@ -177,7 +177,7 @@
                         <div class="destination-price">À partir de 1 200 000 GNF</div>
                         <p>Découvrez la capitale sénégalaise, sa culture riche, ses marchés animés et son patrimoine
                             historique.</p>
-                        <a href="#reservation" class="btn btn-secondary">Réserver</a>
+                        <button class="btn btn-secondary reserve-btn" onclick="handleReservation(event)">Réserver</button>
                     </div>
                 </div>
                 <div class="destination-card">
@@ -190,7 +190,7 @@
                     <div class="destination-info">
                         <div class="destination-price">À partir de 1 500 000 GNF</div>
                         <p>Explorez la métropole ivoirienne, ses plages, sa vie nocturne animée et sa gastronomie.</p>
-                        <a href="#reservation" class="btn btn-secondary">Réserver</a>
+                        <button class="btn btn-secondary reserve-btn" onclick="handleReservation(event)">Réserver</button>
                     </div>
                 </div>
                 <div class="destination-card">
@@ -204,7 +204,7 @@
                         <div class="destination-price">À partir de 8 000 000 GNF</div>
                         <p>Voyagez vers la capitale française avec ses monuments emblématiques et sa culture européenne.
                         </p>
-                        <a href="#reservation" class="btn btn-secondary">Réserver</a>
+                        <button class="btn btn-secondary reserve-btn" onclick="handleReservation(event)">Réserver</button>
                     </div>
                 </div>
             </div>
@@ -219,7 +219,7 @@
                 <p>Remplissez le formulaire ci-dessous pour réserver votre séjour de rêve</p>
             </div>
             <div class="reservation-wrapper">
-                <form class="reservation-form" id="reservationForm">
+                    <div id="reservationContent">
                     <div class="form-section">
                         <h3>📍 Informations sur le Voyage</h3>
                         <div class="form-row">
@@ -394,6 +394,7 @@
                     <div class="form-submit">
                         <button type="submit" class="btn btn-primary btn-large">Confirmer la Réservation</button>
                         <p class="form-note">* Champs obligatoires</p>
+                    </div>
                     </div>
                 </form>
             </div>
@@ -775,6 +776,95 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
     </style>
-</body>
 
-</html>
+    <script>
+        // Wishlist functionality
+        function toggleWishlist(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            const btn = event.target;
+            btn.classList.toggle('active');
+            const cardTitle = btn.closest('.destination-card').querySelector('h3')?.textContent || 'Destination';
+            
+            if (btn.classList.contains('active')) {
+                btn.textContent = '❤️';
+                showNotification(`${cardTitle} ajouté à vos favoris!`);
+                saveWishlist(cardTitle, true);
+            } else {
+                btn.textContent = '🤍';
+                showNotification(`${cardTitle} retiré de vos favoris`);
+                saveWishlist(cardTitle, false);
+            }
+        }
+
+        function saveWishlist(destination, isAdded) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist') || '{}');
+            if (isAdded) {
+                wishlist[destination] = true;
+            } else {
+                delete wishlist[destination];
+            }
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        }
+
+        function showNotification(message) {
+            const notif = document.createElement('div');
+            notif.textContent = message;
+            notif.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 10px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                z-index: 10000;
+                animation: slideInRight 0.3s ease;
+                font-weight: 600;
+            `;
+            document.body.appendChild(notif);
+            setTimeout(() => notif.remove(), 3000);
+        }
+
+        // Search functionality
+        document.getElementById('destSearch')?.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.destination-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                const description = card.querySelector('.destination-info p')?.textContent.toLowerCase() || '';
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = '';
+                    card.style.animation = 'fadeIn 0.3s ease';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Load wishlist on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const wishlist = JSON.parse(localStorage.getItem('wishlist') || '{}');
+            document.querySelectorAll('.destination-card').forEach(card => {
+                const title = card.querySelector('h3')?.textContent;
+                const btn = card.querySelector('.wishlist-btn');
+                if (wishlist[title]) {
+                    btn.classList.add('active');
+                    btn.textContent = '❤️';
+                }
+            });
+        });
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </script>

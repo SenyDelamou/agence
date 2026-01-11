@@ -457,6 +457,50 @@ body::before {
     background: var(--white);
 }
 
+.destinations-search {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dest-search-input {
+    flex: 1;
+    padding: 14px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: var(--transition);
+    background: var(--white);
+    color: var(--text-dark);
+}
+
+.dest-search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.filter-toggle {
+    padding: 14px 24px;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.filter-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
 .destinations-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -470,6 +514,7 @@ body::before {
     box-shadow: var(--shadow);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid transparent;
+    position: relative;
 }
 
 [data-theme="dark"] .destination-card {
@@ -479,7 +524,7 @@ body::before {
 
 .destination-card:hover {
     transform: translateY(-10px);
-    box-shadow: var(--shadow-hover);
+    box-shadow: var(--shadow-premium);
 }
 
 [data-theme="dark"] .destination-card:hover {
@@ -494,6 +539,35 @@ body::before {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+}
+
+.wishlist-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.wishlist-btn:hover {
+    transform: scale(1.2);
+    background: var(--white);
+}
+
+.wishlist-btn.active {
+    color: #f5576c;
+    background: var(--white);
 }
 
 .destination-overlay {
@@ -540,8 +614,25 @@ body::before {
 
 .destination-info p {
     color: var(--text-light);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     line-height: 1.6;
+}
+
+.destination-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.stars {
+    color: #ffc107;
+    font-size: 1rem;
+}
+
+.rating {
+    color: var(--text-light);
+    font-size: 0.85rem;
 }
 
 /* Reservation Section */
@@ -1158,9 +1249,40 @@ body::before {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+
+    .about-grid,
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .destinations-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
     .hamburger {
         display: flex;
+    }
+
+    .nav-brand h1 {
+        font-size: 1.3rem;
     }
 
     .nav-menu {
@@ -1174,10 +1296,19 @@ body::before {
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         padding: 2rem 0;
+        z-index: 999;
+    }
+
+    [data-theme="dark"] .nav-menu {
+        background: var(--card-bg);
     }
 
     .nav-menu.active {
         left: 0;
+    }
+
+    .nav-menu li {
+        padding: 1rem 0;
     }
 
     .hamburger.active span:nth-child(1) {
@@ -1192,16 +1323,36 @@ body::before {
         transform: rotate(-45deg) translate(7px, -7px);
     }
 
+    .hero {
+        height: 70vh;
+        min-height: 500px;
+    }
+
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.95rem;
     }
 
     .section-header h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .about-grid,
+    .services-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .destinations-grid {
+        grid-template-columns: 1fr;
     }
 
     .contact-content {
@@ -1209,12 +1360,771 @@ body::before {
         gap: 2rem;
     }
 
-    .destinations-grid {
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-form input {
+        width: 100%;
+    }
+
+    .reservation-form {
+        padding: 2rem 1.5rem;
+    }
+
+    .form-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .profile-grid {
         grid-template-columns: 1fr;
     }
 
-    .newsletter-form {
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .highlights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .amenities-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .navbar {
+        padding: 0.75rem 0;
+    }
+
+    .navbar .container {
+        padding: 1rem 15px;
+    }
+
+    .nav-brand h1 {
+        font-size: 1.1rem;
+    }
+
+    .login-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero {
+        height: 60vh;
+        min-height: 400px;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .hero-content {
+        padding: 0 15px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .about {
+        padding: 60px 0;
+    }
+
+    .about-card {
+        padding: 1.5rem;
+    }
+
+    .about-card .icon {
+        font-size: 2.5rem;
+    }
+
+    .about-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .section-header {
+        margin-bottom: 2rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .section-header p {
+        font-size: 0.9rem;
+    }
+
+    .destination-card {
+        border-radius: 15px;
+    }
+
+    .destination-image {
+        height: 200px;
+    }
+
+    .destination-overlay h3 {
+        font-size: 1.3rem;
+    }
+
+    .destination-overlay p {
+        font-size: 0.9rem;
+    }
+
+    .destination-info {
+        padding: 1rem;
+    }
+
+    .destination-price {
+        font-size: 1.1rem;
+    }
+
+    .reservation {
+        padding: 60px 0;
+    }
+
+    .reservation-form {
+        padding: 1.5rem;
+    }
+
+    .form-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+
+    .form-submit {
+        margin-top: 1.5rem;
+    }
+
+    .btn-large {
+        padding: 12px 24px;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .service-icon {
+        font-size: 2.5rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+
+    .testimonial-rating {
+        font-size: 1rem;
+    }
+
+    .testimonial-text {
+        font-size: 0.9rem;
+    }
+
+    .contact {
+        padding: 60px 0;
+    }
+
+    .contact-info {
+        gap: 1.5rem;
+    }
+
+    .contact-item {
+        gap: 1rem;
+    }
+
+    .contact-icon {
+        font-size: 1.5rem;
+        min-width: 40px;
+    }
+
+    .contact-item h3 {
+        font-size: 1rem;
+    }
+
+    .contact-item p {
+        font-size: 0.9rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+
+    .footer {
+        padding: 40px 0 15px;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .floating-chat-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    /* Profile Page */
+    .profile-header {
+        padding: 60px 0 30px;
+    }
+
+    .profile-banner {
+        height: 200px;
+        margin-bottom: -60px;
+    }
+
+    .profile-card {
+        padding: 2rem 1.5rem;
+        max-width: 100%;
+    }
+
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+        margin: -50px auto 15px;
+    }
+
+    .profile-card h1 {
+        font-size: 1.3rem;
+    }
+
+    .profile-grid {
+        gap: 1.5rem;
+    }
+
+    .profile-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+
+    .profile-nav-link {
+        flex: 0 0 48%;
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+
+    .profile-nav-link .icon {
+        font-size: 1.1rem;
+    }
+
+    .profile-main {
+        padding: 1.5rem;
+    }
+
+    .profile-tab {
+        padding: 1.5rem;
+    }
+
+    .tab-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .reservation-item {
         flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .reservation-price {
+        font-size: 1.1rem;
+    }
+
+    .favorites-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-form label {
+        font-size: 0.9rem;
+    }
+
+    .profile-form input,
+    .profile-form textarea {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    /* Destination Detail */
+    .destination-hero {
+        height: 350px;
+        margin-top: 60px;
+    }
+
+    .destination-hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .destination-hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .destination-details {
+        padding: 40px 0;
+    }
+
+    .gallery-grid {
+        gap: 1rem;
+    }
+
+    .gallery-item {
+        height: 150px;
+    }
+
+    .description-section h2,
+    .highlights-section h2,
+    .amenities-section h2,
+    .reviews-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .highlight-item {
+        padding: 1rem;
+    }
+
+    .highlight-icon {
+        font-size: 2.5rem;
+    }
+
+    .highlight-item h3 {
+        font-size: 1rem;
+    }
+
+    .pricing-card,
+    .info-card,
+    .contact-card {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .price {
+        font-size: 2rem;
+    }
+
+    .similar-destinations h2 {
+        font-size: 1.5rem;
+    }
+
+    .review-item {
+        padding: 1rem;
+    }
+
+    /* Login Pages */
+    .login-wrapper {
+        border-radius: 15px;
+        min-height: auto;
+    }
+
+    .login-left {
+        display: none;
+    }
+
+    .login-right {
+        padding: 1.5rem;
+    }
+
+    .login-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .login-form input[type="email"],
+    .login-form input[type="password"],
+    .login-form input[type="text"],
+    .login-form input[type="tel"],
+    .login-form input[type="date"] {
+        padding: 10px 12px 10px 40px;
+        font-size: 0.9rem;
+    }
+
+    .input-icon {
+        left: 12px;
+        font-size: 1rem;
+    }
+
+    .password-toggle {
+        right: 12px;
+    }
+
+    .btn-social {
+        padding: 10px;
+        font-size: 0.85rem;
+        gap: 0.5rem;
+    }
+
+    .social-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* Messenger */
+    .messenger-container {
+        height: calc(100vh - 60px);
+        margin-top: 60px;
+    }
+
+    .chat-sidebar {
+        width: 60px;
+    }
+
+    .sidebar-header h2,
+    .search-bar,
+    .conversation-info {
+        display: none;
+    }
+
+    .conversation {
+        justify-content: center;
+        padding: 8px;
+    }
+
+    .avatar {
+        margin-right: 0;
+    }
+
+    .avatar img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .chat-header {
+        padding: 10px 15px;
+    }
+
+    .chat-user-info {
+        gap: 10px;
+    }
+
+    .user-details h3 {
+        font-size: 0.95rem;
+    }
+
+    .status-text {
+        font-size: 0.75rem;
+    }
+
+    .messages-area {
+        padding: 10px;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+
+    .message-content {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    .chat-input-area {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .input-wrapper input {
+        padding: 8px 30px 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    .send-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 12px;
+    }
+
+    .navbar .container {
+        padding: 0.75rem 12px;
+    }
+
+    .nav-brand h1 {
+        font-size: 1rem;
+    }
+
+    .login-btn {
+        padding: 0.3rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    .hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+
+    .hero-title {
+        font-size: 1.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .hero-content {
+        padding: 0 10px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+
+    .about {
+        padding: 40px 0;
+    }
+
+    .about-card {
+        padding: 1rem;
+    }
+
+    .about-card .icon {
+        font-size: 2rem;
+    }
+
+    .about-card h3 {
+        font-size: 1rem;
+    }
+
+    .about-card p {
+        font-size: 0.85rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .section-header p {
+        font-size: 0.8rem;
+    }
+
+    .destination-info {
+        padding: 0.75rem;
+    }
+
+    .destination-price {
+        font-size: 1rem;
+    }
+
+    .destination-info p {
+        font-size: 0.85rem;
+    }
+
+    .reservation {
+        padding: 40px 0;
+    }
+
+    .reservation-form {
+        padding: 1rem;
+    }
+
+    .form-section {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .form-section h3 {
+        font-size: 1rem;
+    }
+
+    .form-group label {
+        font-size: 0.85rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    .checkbox-group {
+        gap: 0.5rem;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+    }
+
+    .checkbox-group label {
+        font-size: 0.8rem;
+    }
+
+    .btn-large {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+
+    .service-card {
+        padding: 1rem;
+    }
+
+    .service-icon {
+        font-size: 2rem;
+    }
+
+    .service-card h3 {
+        font-size: 0.95rem;
+    }
+
+    .service-card p {
+        font-size: 0.8rem;
+    }
+
+    .testimonial-card {
+        padding: 1rem;
+    }
+
+    .testimonial-rating {
+        font-size: 0.9rem;
+    }
+
+    .testimonial-text {
+        font-size: 0.8rem;
+    }
+
+    .testimonial-author strong {
+        font-size: 0.95rem;
+    }
+
+    .testimonial-author span {
+        font-size: 0.75rem;
+    }
+
+    .contact {
+        padding: 40px 0;
+    }
+
+    .contact-item {
+        gap: 0.75rem;
+    }
+
+    .contact-icon {
+        font-size: 1.3rem;
+    }
+
+    .contact-item h3 {
+        font-size: 0.95rem;
+    }
+
+    .contact-item p {
+        font-size: 0.8rem;
+    }
+
+    .contact-form {
+        padding: 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .footer {
+        padding: 30px 0 10px;
+    }
+
+    .footer-section h3,
+    .footer-section h4 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .footer-section p {
+        font-size: 0.8rem;
+    }
+
+    .footer-section ul li a {
+        font-size: 0.8rem;
+    }
+
+    .floating-chat-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    /* Messenger Mobile Optimizations */
+    .chat-sidebar {
+        width: 50px;
+    }
+
+    .avatar img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .icon-btn {
+        font-size: 1rem;
+        padding: 4px;
+    }
+
+    .send-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
     }
 }
 
@@ -1307,30 +2217,44 @@ body::before {
     animation: float-icon 3s ease-in-out infinite;
 }
 
-@keyframes pulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 0.5;
-    }
-
-    50% {
-        transform: scale(1.1);
-        opacity: 0.3;
-    }
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(100px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
-@keyframes float-icon {
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
 
-    0%,
-    100% {
-        transform: translateY(0);
-    }
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-    50% {
-        transform: translateY(-20px);
-    }
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 .login-features {
