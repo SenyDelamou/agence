@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Profil - Voyage Élégance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="acceuil.html" style="text-decoration: none; color: inherit;">
+                    <h1>✈️ Voyage Élégance</h1>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="acceuil.html#accueil">Accueil</a></li>
+                <li><a href="acceuil.html#destinations">Destinations</a></li>
+                <li><a href="acceuil.html#reservation">Réservation</a></li>
+                <li><a href="acceuil.html#services">Services</a></li>
+                <li><a href="acceuil.html#contact">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button class="logout-btn" id="logoutBtn">Déconnexion</button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème" title="Changer de thème">
+                    <span id="themeIcon">🌙</span>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Header -->
+    <section class="profile-header">
+        <div class="container">
+            <div class="profile-hero">
+                <div class="profile-banner"></div>
+                <div class="profile-card">
+                    <div class="avatar-container">
+                        <img id="userAvatar" src="https://ui-avatars.com/api/?name=User&background=667eea&color=fff" alt="Avatar utilisateur" class="profile-avatar">
+                        <button class="avatar-edit-btn" id="avatarEditBtn" title="Changer l'avatar">📷</button>
+                    </div>
+                    <h1 id="userName">Bienvenue</h1>
+                    <p id="userEmail" class="user-email">email@exemple.com</p>
+                    <div class="profile-actions">
+                        <button class="btn btn-primary" id="editProfileBtn">✏️ Modifier</button>
+                        <button class="btn btn-secondary" id="cancelEditBtn" style="display: none;">Annuler</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Content -->
+    <section class="profile-content">
+        <div class="container">
+            <div class="profile-grid">
+                <!-- Sidebar -->
+                <aside class="profile-sidebar">
+                    <nav class="profile-nav">
+                        <a href="#mes-reservations" class="profile-nav-link active" onclick="switchTab(event, 'reservations')">
+                            <span class="icon">📅</span>
+                            <span>Mes Réservations</span>
+                        </a>
+                        <a href="#mes-favoris" class="profile-nav-link" onclick="switchTab(event, 'favoris')">
+                            <span class="icon">❤️</span>
+                            <span>Mes Favoris</span>
+                        </a>
+                        <a href="#mon-compte" class="profile-nav-link" onclick="switchTab(event, 'compte')">
+                            <span class="icon">⚙️</span>
+                            <span>Mon Compte</span>
+                        </a>
+                        <a href="#adresses" class="profile-nav-link" onclick="switchTab(event, 'adresses')">
+                            <span class="icon">📍</span>
+                            <span>Mes Adresses</span>
+                        </a>
+                        <a href="#paiements" class="profile-nav-link" onclick="switchTab(event, 'paiements')">
+                            <span class="icon">💳</span>
+                            <span>Paiements</span>
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="profile-main">
+                    <!-- Réservations Tab -->
+                    <div id="reservations" class="profile-tab active">
+                        <div class="tab-header">
+                            <h2>Mes Réservations</h2>
+                            <p>Consultez l'historique de vos voyages</p>
+                        </div>
+                        <div class="reservations-list">
+                            <div class="reservation-item">
+                                <div class="reservation-left">
+                                    <h3>Voyage aux Îles de Loos</h3>
+                                    <p class="reservation-date">Du 15 février au 22 février 2026</p>
+                                    <span class="status-badge confirmed">✓ Confirmé</span>
+                                </div>
+                                <div class="reservation-right">
+                                    <p class="reservation-price">750 000 GNF</p>
+                                    <button class="btn btn-secondary btn-small">Détails</button>
+                                </div>
+                            </div>
+                            <div class="reservation-item">
+                                <div class="reservation-left">
+                                    <h3>Voyage à Paris</h3>
+                                    <p class="reservation-date">Du 1er mai au 15 mai 2026</p>
+                                    <span class="status-badge pending">⏳ En attente</span>
+                                </div>
+                                <div class="reservation-right">
+                                    <p class="reservation-price">8 000 000 GNF</p>
+                                    <button class="btn btn-secondary btn-small">Détails</button>
+                                </div>
+                            </div>
+                            <div class="reservation-item">
+                                <div class="reservation-left">
+                                    <h3>Fouta Djallon - Passé</h3>
+                                    <p class="reservation-date">Du 10 décembre 2025 au 17 décembre 2025</p>
+                                    <span class="status-badge completed">✓ Complété</span>
+                                </div>
+                                <div class="reservation-right">
+                                    <p class="reservation-price">500 000 GNF</p>
+                                    <button class="btn btn-secondary btn-small">Avis</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Favoris Tab -->
+                    <div id="favoris" class="profile-tab">
+                        <div class="tab-header">
+                            <h2>Mes Destinations Préférées</h2>
+                            <p>Les destinations que vous avez sauvegardées</p>
+                        </div>
+                        <div class="favorites-grid">
+                            <div class="favorite-card">
+                                <div class="favorite-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                                <h3>Îles de Loos</h3>
+                                <p>Paradis tropical guinéen</p>
+                                <div class="favorite-actions">
+                                    <button class="btn btn-primary btn-small">Réserver</button>
+                                    <button class="remove-favorite">❌</button>
+                                </div>
+                            </div>
+                            <div class="favorite-card">
+                                <div class="favorite-image" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);"></div>
+                                <h3>Paris, France</h3>
+                                <p>La ville lumière</p>
+                                <div class="favorite-actions">
+                                    <button class="btn btn-primary btn-small">Réserver</button>
+                                    <button class="remove-favorite">❌</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Compte Tab -->
+                    <div id="compte" class="profile-tab">
+                        <div class="tab-header">
+                            <h2>Paramètres du Compte</h2>
+                            <p>Modifiez vos informations personnelles</p>
+                        </div>
+                        <form class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="prenom">Prénom</label>
+                                    <input type="text" id="prenom" placeholder="Votre prénom">
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom">Nom</label>
+                                    <input type="text" id="nom" placeholder="Votre nom">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="votre.email@exemple.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="telephone">Téléphone</label>
+                                <input type="tel" id="telephone" placeholder="+224 612 34 56 78">
+                            </div>
+                            <div class="form-group">
+                                <label for="bio">Biographie</label>
+                                <textarea id="bio" placeholder="Parlez-nous de vous..." rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+                        </form>
+                    </div>
+
+                    <!-- Adresses Tab -->
+                    <div id="adresses" class="profile-tab">
+                        <div class="tab-header">
+                            <h2>Mes Adresses</h2>
+                            <p>Gérez vos adresses de livraison</p>
+                        </div>
+                        <div class="addresses-list">
+                            <div class="address-card">
+                                <h3>📍 Adresse Principale</h3>
+                                <p>123 Avenue des Champs-Élysées<br>75008 Conakry, Guinée</p>
+                                <button class="btn btn-secondary btn-small">Modifier</button>
+                            </div>
+                            <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">+ Ajouter une adresse</button>
+                        </div>
+                    </div>
+
+                    <!-- Paiements Tab -->
+                    <div id="paiements" class="profile-tab">
+                        <div class="tab-header">
+                            <h2>Méthodes de Paiement</h2>
+                            <p>Gérez vos moyens de paiement</p>
+                        </div>
+                        <div class="payments-list">
+                            <div class="payment-card">
+                                <div class="payment-header">💳 Carte Bancaire</div>
+                                <p>**** **** **** 4242</p>
+                                <p class="payment-expiry">Expire 12/26</p>
+                                <button class="btn btn-secondary btn-small">Supprimer</button>
+                            </div>
+                            <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">+ Ajouter un moyen de paiement</button>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Voyage Élégance</h3>
+                    <p>Votre agence de voyages de confiance en Guinée depuis 2010.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="acceuil.html">Accueil</a></li>
+                        <li><a href="acceuil.html#destinations">Destinations</a></li>
+                        <li><a href="acceuil.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Voyage Élégance. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load user data from session
+        document.addEventListener('DOMContentLoaded', () => {
+            const userSession = localStorage.getItem('userSession');
+            if (userSession) {
+                const user = JSON.parse(userSession);
+                document.getElementById('userName').textContent = user.name || 'Utilisateur';
+                document.getElementById('userEmail').textContent = user.email || 'email@exemple.com';
+                document.getElementById('userAvatar').src = user.avatar || 'https://ui-avatars.com/api/?name=User&background=667eea&color=fff';
+            } else {
+                // Redirect to login if not logged in
+                window.location.href = 'login.html';
+            }
+
+            // Theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const html = document.documentElement;
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            });
+
+            // Mobile menu
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+            }
+
+            // Logout
+            document.getElementById('logoutBtn').addEventListener('click', () => {
+                localStorage.removeItem('userSession');
+                window.location.href = 'login.html';
+            });
+        });
+
+        // Tab switching
+        function switchTab(e, tabName) {
+            e.preventDefault();
+            
+            // Hide all tabs
+            document.querySelectorAll('.profile-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active from all nav links
+            document.querySelectorAll('.profile-nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active to clicked link
+            event.target.closest('.profile-nav-link').classList.add('active');
+        }
+
+        // Edit profile
+        document.getElementById('editProfileBtn')?.addEventListener('click', () => {
+            switchTab({preventDefault: () => {}}, 'compte');
+            document.querySelector('.profile-nav-link[onclick*="compte"]').click();
+        });
+
+        // Form submission
+        document.querySelector('.profile-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Profil mis à jour avec succès !');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails Destination - Voyage Élégance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="acceuil.html" style="text-decoration: none; color: inherit;">
+                    <h1>✈️ Voyage Élégance</h1>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="acceuil.html#accueil">Accueil</a></li>
+                <li><a href="acceuil.html#destinations">Destinations</a></li>
+                <li><a href="acceuil.html#reservation">Réservation</a></li>
+                <li><a href="acceuil.html#services">Services</a></li>
+                <li><a href="acceuil.html#contact">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <a href="login.html" class="login-btn">Connexion</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème" title="Changer de thème">
+                    <span id="themeIcon">🌙</span>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Destination Hero -->
+    <section class="destination-hero" id="destinationHero">
+        <div class="destination-hero-image"></div>
+        <div class="destination-hero-overlay"></div>
+        <div class="destination-hero-content">
+            <h1 id="destinationTitle">Îles de Loos</h1>
+            <p id="destinationSubtitle">Paradis tropical guinéen</p>
+            <div class="destination-hero-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">(247 avis)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destination Details -->
+    <section class="destination-details">
+        <div class="container">
+            <div class="details-grid">
+                <!-- Main Content -->
+                <main class="details-main">
+                    <!-- Gallery -->
+                    <div class="gallery-section">
+                        <div class="gallery-grid">
+                            <div class="gallery-item" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                <span class="gallery-label">Plage</span>
+                            </div>
+                            <div class="gallery-item" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                                <span class="gallery-label">Mer</span>
+                            </div>
+                            <div class="gallery-item" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                                <span class="gallery-label">Nature</span>
+                            </div>
+                            <div class="gallery-item" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                                <span class="gallery-label">Coucher soleil</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="description-section">
+                        <h2>À propos de cette destination</h2>
+                        <p>Les Îles de Loos sont un groupe de petites îles situées au large de Conakry, en Guinée. Elles offrent un véritable paradis tropical avec des plages de sable blanc, des eaux cristallines et une végétation luxuriante.</p>
+                        <p>Chaque île a son charme unique, avec des petits villages accueillants, des fruits de mer frais et une atmosphère décontractée. C'est l'endroit idéal pour se relaxer, faire du snorkeling ou explorer la vie marine locale.</p>
+                    </div>
+
+                    <!-- Highlights -->
+                    <div class="highlights-section">
+                        <h2>Les points forts</h2>
+                        <div class="highlights-grid">
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🏖️</span>
+                                <h3>Plages Magnifiques</h3>
+                                <p>Sable blanc et eau turquoise</p>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🐠</span>
+                                <h3>Vie Marine</h3>
+                                <p>Snorkeling et plongée exceptionnels</p>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🍽️</span>
+                                <h3>Gastronomie</h3>
+                                <p>Fruits de mer frais quotidiens</p>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🌴</span>
+                                <h3>Nature Préservée</h3>
+                                <p>Écosystème tropical intact</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Amenities -->
+                    <div class="amenities-section">
+                        <h2>Équipements disponibles</h2>
+                        <div class="amenities-grid">
+                            <div class="amenity">✓ WiFi Gratuit</div>
+                            <div class="amenity">✓ Piscine</div>
+                            <div class="amenity">✓ Restaurant</div>
+                            <div class="amenity">✓ Spa</div>
+                            <div class="amenity">✓ Activités Nautiques</div>
+                            <div class="amenity">✓ Service Concierge 24/24</div>
+                        </div>
+                    </div>
+
+                    <!-- Reviews -->
+                    <div class="reviews-section">
+                        <h2>Avis des voyageurs</h2>
+                        <div class="reviews-list">
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <h4>Fatoumata Diallo</h4>
+                                    <span class="review-rating">★★★★★</span>
+                                </div>
+                                <p class="review-text">"Un endroit magnifique ! Les îles sont absolument paradisiaques. L'accueil a été chaleureux et le service impeccable. Je reviendrai sans hésiter !"</p>
+                                <span class="review-date">Il y a 2 semaines</span>
+                            </div>
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <h4>Amadou Bah</h4>
+                                    <span class="review-rating">★★★★★</span>
+                                </div>
+                                <p class="review-text">"La nature vierge, la beauté des paysages, et surtout la tranquillité. C'est exactement ce qu'il me fallait. Merci Voyage Élégance !"</p>
+                                <span class="review-date">Il y a 1 mois</span>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+                <!-- Sidebar -->
+                <aside class="details-sidebar">
+                    <!-- Pricing Card -->
+                    <div class="pricing-card">
+                        <h3>À partir de</h3>
+                        <div class="price">750 000 GNF</div>
+                        <p class="price-subtitle">Par personne, 7 jours</p>
+                        
+                        <div class="pricing-details">
+                            <div class="price-row">
+                                <span>Logement</span>
+                                <span>400 000 GNF</span>
+                            </div>
+                            <div class="price-row">
+                                <span>Transfert</span>
+                                <span>150 000 GNF</span>
+                            </div>
+                            <div class="price-row">
+                                <span>Activités</span>
+                                <span>200 000 GNF</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Réserver Maintenant</button>
+                    </div>
+
+                    <!-- Info Card -->
+                    <div class="info-card">
+                        <h3>Informations Pratiques</h3>
+                        <div class="info-item">
+                            <span class="info-label">📍 Localisation</span>
+                            <span class="info-value">Au large de Conakry, Guinée</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">✈️ Distance</span>
+                            <span class="info-value">15 km de Conakry</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">🌡️ Climat</span>
+                            <span class="info-value">Tropical humide</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">📅 Meilleure période</span>
+                            <span class="info-value">Novembre à Mars</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">👥 Durée recommandée</span>
+                            <span class="info-value">7 jours minimum</span>
+                        </div>
+                    </div>
+
+                    <!-- Contact Card -->
+                    <div class="contact-card">
+                        <h3>Besoin d'aide ?</h3>
+                        <p>Contactez notre équipe pour plus d'informations</p>
+                        <div style="margin-top: 1rem;">
+                            <p><strong>📞</strong> +224 612 34 56 78</p>
+                            <p><strong>✉️</strong> contact@voyage-elegance.com</p>
+                            <a href="messenger.html" class="btn btn-secondary" style="width: 100%; margin-top: 1rem; text-align: center;">💬 Chat en direct</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Similar Destinations -->
+    <section class="similar-destinations">
+        <div class="container">
+            <h2>Autres destinations à découvrir</h2>
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <div class="destination-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                    <div class="destination-info">
+                        <h3>Fouta Djallon</h3>
+                        <p class="destination-price">À partir de 500 000 GNF</p>
+                        <p>Les montagnes majestueuses de Guinée</p>
+                        <a href="#" class="btn btn-secondary">Découvrir</a>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                    <div class="destination-info">
+                        <h3>Kakoulima</h3>
+                        <p class="destination-price">À partir de 400 000 GNF</p>
+                        <p>Montagne sacrée avec vue panoramique</p>
+                        <a href="#" class="btn btn-secondary">Découvrir</a>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-image" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);"></div>
+                    <div class="destination-info">
+                        <h3>Paris, France</h3>
+                        <p class="destination-price">À partir de 8 000 000 GNF</p>
+                        <p>La ville lumière européenne</p>
+                        <a href="#" class="btn btn-secondary">Découvrir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Voyage Élégance</h3>
+                    <p>Votre agence de voyages de confiance en Guinée depuis 2010.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="acceuil.html">Accueil</a></li>
+                        <li><a href="acceuil.html#destinations">Destinations</a></li>
+                        <li><a href="acceuil.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Voyage Élégance. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const html = document.documentElement;
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            });
+
+            // Mobile menu
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+            }
+
+            // Smooth scroll for similar destinations
+            document.querySelectorAll('.destinations-grid .btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
