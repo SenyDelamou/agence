@@ -118,15 +118,21 @@
                 <p>Explorez nos destinations les plus prisées depuis la Guinée</p>
             </div>
 
-            <!-- Search Bar -->
+            <!-- Modern Search Bar -->
             <div class="search-container">
-                <div class="search-wrapper">
-                    <input type="text" id="destinationSearch" class="search-input" placeholder="Rechercher une destination (ex: Paris, Dakar, Fouta...)">
-                    <button class="search-btn">Rechercher</button>
-                </div>
+                <input type="text" id="searchBar" class="search-input" placeholder="🔍 Où voulez-vous partir?">
+                <div id="searchResults"></div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn filter-active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="local">Guinée</button>
+                <button class="filter-btn" data-filter="africa">Afrique</button>
+                <button class="filter-btn" data-filter="world">Monde</button>
             </div>
             <div class="destinations-grid">
-                <div class="destination-card">
+                <div class="destination-card" data-category="local" data-animate="scale">
                     <div class="destination-image fouta-djallon">
                         <div class="destination-overlay">
                             <h3>Fouta Djallon</h3>
@@ -137,10 +143,10 @@
                         <div class="destination-price">À partir de 500 000 GNF</div>
                         <p>Découvrez les magnifiques paysages montagneux, les cascades et la culture peule du Fouta
                             Djallon.</p>
-                        <button class="btn btn-secondary reserve-btn" onclick="handleReservation(event)">Réserver</button>
+                        <button class="btn btn-secondary reserve-btn" data-load-action onclick="handleReservation(event)">Réserver</button>
                     </div>
                 </div>
-                <div class="destination-card">
+                <div class="destination-card" data-category="local" data-animate="scale">
                     <div class="destination-image iles-loos">
                         <div class="destination-overlay">
                             <h3>Îles de Loos</h3>
@@ -151,10 +157,10 @@
                         <div class="destination-price">À partir de 750 000 GNF</div>
                         <p>Plages de sable blanc, eaux turquoise et nature préservée sur les îles de Loos au large de
                             Conakry.</p>
-                        <button class="btn btn-secondary reserve-btn" onclick="handleReservation(event)">Réserver</button>
+                        <button class="btn btn-secondary reserve-btn" data-load-action onclick="handleReservation(event)">Réserver</button>
                     </div>
                 </div>
-                <div class="destination-card">
+                <div class="destination-card" data-category="local" data-animate="scale">
                     <div class="destination-image kakoulima">
                         <div class="destination-overlay">
                             <h3>Kakoulima</h3>
@@ -164,10 +170,10 @@
                     <div class="destination-info">
                         <div class="destination-price">À partir de 400 000 GNF</div>
                         <p>Randonnée sur la montagne Kakoulima, site sacré offrant une vue panoramique sur Conakry.</p>
-                        <button class="btn btn-secondary reserve-btn" onclick="handleReservation(event)">Réserver</button>
+                        <button class="btn btn-secondary reserve-btn" data-load-action onclick="handleReservation(event)">Réserver</button>
                     </div>
                 </div>
-                <div class="destination-card">
+                <div class="destination-card" data-category="africa" data-animate="scale">
                     <div class="destination-image dakar">
                         <div class="destination-overlay">
                             <h3>Dakar, Sénégal</h3>
@@ -178,10 +184,10 @@
                         <div class="destination-price">À partir de 1 200 000 GNF</div>
                         <p>Découvrez la capitale sénégalaise, sa culture riche, ses marchés animés et son patrimoine
                             historique.</p>
-                        <button class="btn btn-secondary reserve-btn" onclick="handleReservation(event)">Réserver</button>
+                        <button class="btn btn-secondary reserve-btn" data-load-action onclick="handleReservation(event)">Réserver</button>
                     </div>
                 </div>
-                <div class="destination-card">
+                <div class="destination-card" data-category="africa" data-animate="scale">
                     <div class="destination-image abidjan">
                         <div class="destination-overlay">
                             <h3>Abidjan, Côte d'Ivoire</h3>
@@ -191,7 +197,7 @@
                     <div class="destination-info">
                         <div class="destination-price">À partir de 1 500 000 GNF</div>
                         <p>Explorez la métropole ivoirienne, ses plages, sa vie nocturne animée et sa gastronomie.</p>
-                        <button class="btn btn-secondary reserve-btn" onclick="handleReservation(event)">Réserver</button>
+                        <button class="btn btn-secondary reserve-btn" data-load-action onclick="handleReservation(event)">Réserver</button>
                     </div>
                 </div>
                 <div class="destination-card">
@@ -483,6 +489,52 @@
                     <div class="testimonial-author">
                         <strong>Mariam Camara</strong>
                         <span>Mamou, Guinée</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>🌟 Avis de Nos Clients</h2>
+                <p>Découvrez ce que pensent nos voyageurs satisfaits</p>
+                <button id="reviewBtn" class="btn btn-primary">Laisser un Avis</button>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-animate="scale">
+                    <div class="rating-display">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Un voyage inoubliable! Toute l'équipe a été très attentive et professionnelle. Je recommande vivement!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👨‍💼</div>
+                        <div>
+                            <h4>Ahmed Hassan</h4>
+                            <p>Voyageur Conakry</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-animate="scale">
+                    <div class="rating-display">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Les prix sont compétitifs et le service client est excellent. J'ai déjà réservé 3 voyages avec eux!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👩‍💼</div>
+                        <div>
+                            <h4>Fatima Diallo</h4>
+                            <p>Femme d'affaires</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-animate="scale">
+                    <div class="rating-display">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Des destinations magnifiques et une organisation impeccable. Merci pour cette belle expérience!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👨‍👩‍👧‍👦</div>
+                        <div>
+                            <h4>Mamadou Bah</h4>
+                            <p>Famille, Kindia</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1007,6 +1059,46 @@
             checkReservationAccess();
         });
     </script>
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="modal-backdrop">
+        <div class="modal-content">
+            <button class="modal-close">✕</button>
+            <h3 class="modal-title">✨ Partagez Votre Avis</h3>
+            <p class="modal-subtitle">Aidez-nous à améliorer nos services</p>
+            
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label class="form-label">Votre Nom</label>
+                    <input type="text" id="reviewName" class="form-input" placeholder="Jean Dupont" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Votre Note</label>
+                    <div class="review-rating">
+                        <span class="rating-star" data-rating="1">⭐</span>
+                        <span class="rating-star" data-rating="2">⭐</span>
+                        <span class="rating-star" data-rating="3">⭐</span>
+                        <span class="rating-star" data-rating="4">⭐</span>
+                        <span class="rating-star" data-rating="5">⭐</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Votre Avis</label>
+                    <textarea id="reviewComment" class="form-input form-textarea" placeholder="Dites-nous ce que vous avez aimé..."></textarea>
+                </div>
+                
+                <div class="review-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('reviewModal').style.display='none'">Annuler</button>
+                    <button type="button" id="submitReview" class="btn btn-primary">Envoyer l'Avis</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modern Features JavaScript -->
+    <script src="modern-features.js"></script>
 
     <!-- Chat Widget -->
     <script src="chat-widget.js"></script>
