@@ -219,6 +219,12 @@
                 <p>Remplissez le formulaire ci-dessous pour réserver votre séjour de rêve</p>
             </div>
             <div class="reservation-wrapper">
+                <div id="loginRequired" class="login-required-message" style="display: none;">
+                    <h3>🔒 Connexion requise</h3>
+                    <p>Vous devez être connecté pour faire une réservation.</p>
+                    <a href="login.html" class="btn btn-primary">Se connecter</a>
+                </div>
+                <form class="reservation-form" id="reservationForm">
                     <div id="reservationContent">
                     <div class="form-section">
                         <h3>📍 Informations sur le Voyage</h3>
@@ -683,6 +689,17 @@
         // Form submission
         document.querySelectorAll('form').forEach(form => {
             form.addEventListener('submit', (e) => {
+                // Check if user is logged in for reservation form
+                if (form.id === 'reservationForm') {
+                    const userSession = localStorage.getItem('userSession');
+                    if (!userSession) {
+                        e.preventDefault();
+                        alert('Veuillez vous connecter pour effectuer une réservation.');
+                        window.location.href = 'login.html';
+                        return;
+                    }
+                }
+
                 e.preventDefault();
 
                 // Special handling for reservation form
@@ -856,6 +873,76 @@
                     btn.textContent = '❤️';
                 }
             });
+
+            // Check reservation access on page load
+            checkReservationAccess();
+        });
+
+        // Check if user can access reservation
+        function checkReservationAccess() {
+            const userSession = localStorage.getItem('userSession');
+            const loginRequired = document.getElementById('loginRequired');
+            const reservationContent = document.getElementById('reservationContent');
+            const reservationForm = document.getElementById('reservationForm');
+
+            if (!userSession) {
+                // User not logged in - show login message
+                if (loginRequired && reservationContent) {
+                    loginRequired.style.display = 'block';
+                    reservationContent.style.display = 'none';
+                    if (reservationForm) {
+                        reservationForm.style.opacity = '0.5';
+                        reservationForm.style.pointerEvents = 'none';
+                    }
+                }
+                // Disable all reserve buttons
+                document.querySelectorAll('.reserve-btn').forEach(btn => {
+                    btn.disabled = true;
+                    btn.style.opacity = '0.6';
+                    btn.style.cursor = 'not-allowed';
+                    btn.title = 'Veuillez vous connecter pour réserver';
+                });
+            } else {
+                // User logged in - show form
+                if (loginRequired && reservationContent) {
+                    loginRequired.style.display = 'none';
+                    reservationContent.style.display = 'block';
+                    if (reservationForm) {
+                        reservationForm.style.opacity = '1';
+                        reservationForm.style.pointerEvents = 'auto';
+                    }
+                }
+                // Enable all reserve buttons
+                document.querySelectorAll('.reserve-btn').forEach(btn => {
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                    btn.style.cursor = 'pointer';
+                    btn.title = '';
+                });
+            }
+        }
+
+        // Handle reservation button click
+        function handleReservation(event) {
+            event.preventDefault();
+            const userSession = localStorage.getItem('userSession');
+
+            if (!userSession) {
+                // Not logged in - show alert and redirect
+                alert('Veuillez vous connecter pour faire une réservation.');
+                window.location.href = 'login.html';
+            } else {
+                // Logged in - scroll to reservation form
+                const reservationSection = document.getElementById('reservation');
+                if (reservationSection) {
+                    reservationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }
+
+        // Listen for login/logout to update reservation access
+        window.addEventListener('storage', () => {
+            checkReservationAccess();
         });
 
         @keyframes fadeIn {

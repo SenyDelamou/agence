@@ -3626,3 +3626,72 @@ body::before {
 .destination-image.paris {
     background: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=800&auto=format&fit=crop') no-repeat center center/cover !important;
 }
+
+/* Login Required Message */
+.login-required-message {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+    animation: slideDown 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-required-message h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.login-required-message p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+}
+
+.login-required-message .btn {
+    background: white;
+    color: #ff6b6b;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.login-required-message .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .login-required-message {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    border-color: rgba(255, 107, 107, 0.3);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Reserve button disabled state */
+.reserve-btn:disabled {
+    cursor: not-allowed !important;
+    opacity: 0.6 !important;
+}
+
+.reserve-btn:disabled:hover {
+    transform: none;
+    box-shadow: var(--shadow);
+}
