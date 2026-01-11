@@ -171,30 +171,36 @@
                             <h2>Paramètres du Compte</h2>
                             <p>Modifiez vos informations personnelles</p>
                         </div>
-                        <form class="profile-form">
+                        <form class="profile-form" id="profileForm">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="prenom">Prénom</label>
-                                    <input type="text" id="prenom" placeholder="Votre prénom">
+                                    <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required disabled>
                                 </div>
                                 <div class="form-group">
                                     <label for="nom">Nom</label>
-                                    <input type="text" id="nom" placeholder="Votre nom">
+                                    <input type="text" id="nom" name="nom" placeholder="Votre nom" required disabled>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" placeholder="votre.email@exemple.com">
+                                <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" required disabled>
                             </div>
                             <div class="form-group">
                                 <label for="telephone">Téléphone</label>
-                                <input type="tel" id="telephone" placeholder="+224 612 34 56 78">
+                                <input type="tel" id="telephone" name="telephone" placeholder="+224 612 34 56 78" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="bio">Biographie</label>
-                                <textarea id="bio" placeholder="Parlez-nous de vous..." rows="4"></textarea>
+                                <textarea id="bio" name="bio" placeholder="Parlez-nous de vous..." rows="4" disabled></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary" id="saveProfileBtn" style="display: none;">💾 Enregistrer</button>
+                                <button type="button" class="btn btn-primary" id="enableEditBtn">✏️ Modifier</button>
+                            </div>
+                            <div id="editSuccess" class="success-message" style="display: none;">
+                                ✓ Profil mis à jour avec succès !
+                            </div>
                         </form>
                     </div>
 
@@ -264,15 +270,44 @@
             const userSession = localStorage.getItem('userSession');
             if (userSession) {
                 const user = JSON.parse(userSession);
-                document.getElementById('userName').textContent = user.name || 'Utilisateur';
-                document.getElementById('userEmail').textContent = user.email || 'email@exemple.com';
-                document.getElementById('userAvatar').src = user.avatar || 'https://ui-avatars.com/api/?name=User&background=667eea&color=fff';
+                updateProfileDisplay(user);
+                loadProfileForm(user);
             } else {
                 // Redirect to login if not logged in
                 window.location.href = 'login.html';
             }
 
             // Theme toggle
+            setupThemeToggle();
+
+            // Mobile menu
+            setupMobileMenu();
+
+            // Logout
+            document.getElementById('logoutBtn').addEventListener('click', () => {
+                localStorage.removeItem('userSession');
+                window.location.href = 'login.html';
+            });
+
+            // Profile edit functionality
+            setupProfileEdit();
+        });
+
+        function updateProfileDisplay(user) {
+            document.getElementById('userName').textContent = `${user.firstname || 'User'} ${user.lastname || ''}`.trim();
+            document.getElementById('userEmail').textContent = user.email || 'email@exemple.com';
+            document.getElementById('userAvatar').src = user.avatar || 'https://ui-avatars.com/api/?name=' + (user.firstname || 'User') + '&background=667eea&color=fff';
+        }
+
+        function loadProfileForm(user) {
+            document.getElementById('prenom').value = user.firstname || '';
+            document.getElementById('nom').value = user.lastname || '';
+            document.getElementById('email').value = user.email || '';
+            document.getElementById('telephone').value = user.telephone || '';
+            document.getElementById('bio').value = user.bio || '';
+        }
+
+        function setupThemeToggle() {
             const themeToggle = document.getElementById('themeToggle');
             const themeIcon = document.getElementById('themeIcon');
             const html = document.documentElement;
@@ -288,8 +323,9 @@
                 localStorage.setItem('theme', newTheme);
                 themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
             });
+        }
 
-            // Mobile menu
+        function setupMobileMenu() {
             const hamburger = document.querySelector('.hamburger');
             const navMenu = document.querySelector('.nav-menu');
             if (hamburger) {
@@ -298,13 +334,116 @@
                     hamburger.classList.toggle('active');
                 });
             }
+        }
 
-            // Logout
-            document.getElementById('logoutBtn').addEventListener('click', () => {
-                localStorage.removeItem('userSession');
-                window.location.href = 'login.html';
+        function setupProfileEdit() {
+            const editProfileBtn = document.getElementById('editProfileBtn');
+            const enableEditBtn = document.getElementById('enableEditBtn');
+            const saveProfileBtn = document.getElementById('saveProfileBtn');
+            const cancelEditBtn = document.getElementById('cancelEditBtn');
+            const profileForm = document.getElementById('profileForm');
+            const editSuccess = document.getElementById('editSuccess');
+
+            const formInputs = [
+                document.getElementById('prenom'),
+                document.getElementById('nom'),
+                document.getElementById('email'),
+                document.getElementById('telephone'),
+                document.getElementById('bio')
+            ];
+
+            // Enable edit mode
+            enableEditBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                enableEditMode(true, formInputs, enableEditBtn, saveProfileBtn);
+                switchTab({preventDefault: () => {}}, 'compte');
             });
-        });
+
+            // Header edit button
+            editProfileBtn.addEventListener('click', () => {
+                enableEditMode(true, formInputs, enableEditBtn, saveProfileBtn);
+                switchTab({preventDefault: () => {}}, 'compte');
+            });
+
+            // Save profile
+            profileForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const userSession = localStorage.getItem('userSession');
+                const user = JSON.parse(userSession);
+
+                // Update user data
+                user.firstname = document.getElementById('prenom').value;
+                user.lastname = document.getElementById('nom').value;
+                user.email = document.getElementById('email').value;
+                user.telephone = document.getElementById('telephone').value;
+                user.bio = document.getElementById('bio').value;
+
+                // Generate new avatar with updated name
+                user.avatar = `https://ui-avatars.com/api/?name=${user.firstname}+${user.lastname}&background=667eea&color=fff`;
+
+                // Save to localStorage
+                localStorage.setItem('userSession', JSON.stringify(user));
+
+                // Update display
+                updateProfileDisplay(user);
+
+                // Show success message
+                editSuccess.style.display = 'block';
+                setTimeout(() => {
+                    editSuccess.style.display = 'none';
+                }, 3000);
+
+                // Disable edit mode
+                enableEditMode(false, formInputs, enableEditBtn, saveProfileBtn);
+            });
+
+            // Cancel edit
+            if (cancelEditBtn) {
+                cancelEditBtn.addEventListener('click', () => {
+                    const userSession = localStorage.getItem('userSession');
+                    const user = JSON.parse(userSession);
+                    loadProfileForm(user);
+                    enableEditMode(false, formInputs, enableEditBtn, saveProfileBtn);
+                });
+            }
+
+            // Avatar edit
+            const avatarEditBtn = document.getElementById('avatarEditBtn');
+            if (avatarEditBtn) {
+                avatarEditBtn.addEventListener('click', () => {
+                    const colors = ['667eea', '764ba2', 'f093fb', '43e97b', '30cfd0', 'fa709a'];
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    const userSession = localStorage.getItem('userSession');
+                    const user = JSON.parse(userSession);
+                    const name = `${user.firstname || 'User'}+${user.lastname || ''}`;
+                    
+                    user.avatar = `https://ui-avatars.com/api/?name=${name}&background=${randomColor}&color=fff`;
+                    localStorage.setItem('userSession', JSON.stringify(user));
+                    
+                    document.getElementById('userAvatar').src = user.avatar;
+                });
+            }
+        }
+
+        function enableEditMode(enable, inputs, enableBtn, saveBtn) {
+            inputs.forEach(input => {
+                input.disabled = !enable;
+            });
+
+            if (enable) {
+                enableBtn.style.display = 'none';
+                document.getElementById('saveProfileBtn').style.display = 'block';
+                document.getElementById('cancelEditBtn').style.display = 'block';
+                inputs.forEach(input => input.style.borderColor = 'var(--primary-color)');
+            } else {
+                enableBtn.style.display = 'block';
+                document.getElementById('saveProfileBtn').style.display = 'none';
+                document.getElementById('cancelEditBtn').style.display = 'none';
+                inputs.forEach(input => input.style.borderColor = '');
+            }
+        }
 
         // Tab switching
         function switchTab(e, tabName) {
@@ -324,19 +463,15 @@
             document.getElementById(tabName).classList.add('active');
             
             // Add active to clicked link
-            event.target.closest('.profile-nav-link').classList.add('active');
+            document.querySelector(`[onclick*="${tabName}"]`).classList.add('active');
         }
 
-        // Edit profile
-        document.getElementById('editProfileBtn')?.addEventListener('click', () => {
-            switchTab({preventDefault: () => {}}, 'compte');
-            document.querySelector('.profile-nav-link[onclick*="compte"]').click();
-        });
-
-        // Form submission
-        document.querySelector('.profile-form')?.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Profil mis à jour avec succès !');
+        // Form submission for other sections
+        document.querySelector('.addresses-list')?.addEventListener('submit', (e) => {
+            if (e.target.matches('form')) {
+                e.preventDefault();
+                alert('Adresse ajoutée avec succès !');
+            }
         });
     </script>
 </body>
