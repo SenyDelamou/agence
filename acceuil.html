@@ -664,6 +664,7 @@
                     <h4>Support</h4>
                     <ul>
                         <li><a href="#contact">Contact</a></li>
+                        <li><a href="chat-help.html">Aide Chat</a></li>
                         <li><a href="video-call.html">Appel Vidéo</a></li>
                         <li><a href="booking-tracker.html">Suivi Réservation</a></li>
                         <li><a href="#faq">FAQ</a></li>
@@ -1078,14 +1079,10 @@
         window.addEventListener('storage', () => {
             checkReservationAccess();
         });
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(100px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
     </script>
+
+    <!-- Chat Widget -->
+    <script src="chat-widget.js"></script>
+</body>
+
+</html>

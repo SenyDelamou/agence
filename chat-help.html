@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aide Chat - Voyage Élégance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="acceuil.html" style="text-decoration: none; color: inherit;">
+                    <h1>✈️ Voyage Élégance</h1>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="acceuil.html">Accueil</a></li>
+                <li><a href="messenger.html">Messagerie</a></li>
+                <li><a href="travel-info.html">Infos Pratiques</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <a href="login.html" class="login-btn">Connexion</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+                    <span id="themeIcon">🌙</span>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 300px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="hero-content">
+            <h1 class="hero-title">💬 Système de Chat Unifié</h1>
+            <p class="hero-subtitle">Obtenez de l'aide rapidement et facilement</p>
+        </div>
+    </section>
+
+    <!-- Contenu Principal -->
+    <section class="container" style="padding: 60px 20px;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            
+            <!-- Section 1: Vue d'ensemble -->
+            <div class="card" style="margin-bottom: 40px; padding: 40px; border-radius: 12px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h2 style="color: #667eea; margin-bottom: 20px;">📱 Vue d'Ensemble</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #475569;">
+                    Voyage Élégance propose un <strong>système de chat unique et unifié</strong> accessible sur toutes les pages du site.
+                    Ce système vous permet de communiquer rapidement avec notre équipe de support sans avoir besoin d'une page dédiée.
+                </p>
+            </div>
+
+            <!-- Section 2: Comment utiliser -->
+            <div class="card" style="margin-bottom: 40px; padding: 40px; border-radius: 12px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h2 style="color: #667eea; margin-bottom: 30px;">🚀 Comment Utiliser</h2>
+                <div style="display: grid; gap: 25px;">
+                    <div style="display: flex; gap: 15px;">
+                        <div style="font-size: 2rem; min-width: 50px;">1️⃣</div>
+                        <div>
+                            <h3 style="margin-top: 0; color: #334155;">Ouvrir le Chat</h3>
+                            <p style="color: #64748b; margin-bottom: 0;">
+                                Cliquez sur le bouton flottant <strong>💬</strong> dans le coin inférieur droit de l'écran.
+                            </p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 15px;">
+                        <div style="font-size: 2rem; min-width: 50px;">2️⃣</div>
+                        <div>
+                            <h3 style="margin-top: 0; color: #334155;">Taper un Message</h3>
+                            <p style="color: #64748b; margin-bottom: 0;">
+                                Écrivez votre question ou message dans le champ de texte au bas de la fenêtre de chat.
+                            </p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 15px;">
+                        <div style="font-size: 2rem; min-width: 50px;">3️⃣</div>
+                        <div>
+                            <h3 style="margin-top: 0; color: #334155;">Envoyer</h3>
+                            <p style="color: #64748b; margin-bottom: 0;">
+                                Cliquez sur le bouton d'envoi ou appuyez sur <strong>Entrée</strong> pour envoyer votre message.
+                            </p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 15px;">
+                        <div style="font-size: 2rem; min-width: 50px;">4️⃣</div>
+                        <div>
+                            <h3 style="margin-top: 0; color: #334155;">Accéder à la Messagerie Complète</h3>
+                            <p style="color: #64748b; margin-bottom: 0;">
+                                Pour une conversation plus détaillée, cliquez sur <strong>"Ouvrir messagerie complète"</strong> pour accéder à la page de messagerie.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Disponibilité -->
+            <div class="card" style="margin-bottom: 40px; padding: 40px; border-radius: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h2 style="margin-bottom: 20px;">⏰ Disponibilité du Chat</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px;">
+                        <h3 style="margin: 0 0 10px 0;">🌍 Support Global</h3>
+                        <p style="margin: 0; font-size: 0.95rem;">Disponible 24h/24, 7j/7</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px;">
+                        <h3 style="margin: 0 0 10px 0;">🚀 Réponse Rapide</h3>
+                        <p style="margin: 0; font-size: 0.95rem;">Réponse instantanée par IA ou équipe</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px;">
+                        <h3 style="margin: 0 0 10px 0;">💾 Historique Sauvegardé</h3>
+                        <p style="margin: 0; font-size: 0.95rem;">Vos messages sont conservés</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Types de Questions -->
+            <div class="card" style="margin-bottom: 40px; padding: 40px; border-radius: 12px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h2 style="color: #667eea; margin-bottom: 30px;">❓ Types de Questions Supportées</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div style="padding: 20px; background: #f1f5f9; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h3 style="margin: 0 0 10px 0; color: #334155;">📋 Réservations</h3>
+                        <p style="margin: 0; color: #64748b; font-size: 0.95rem;">Informations sur les réservations et les tarifs</p>
+                    </div>
+                    <div style="padding: 20px; background: #f1f5f9; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h3 style="margin: 0 0 10px 0; color: #334155;">🌍 Destinations</h3>
+                        <p style="margin: 0; color: #64748b; font-size: 0.95rem;">Conseils et recommandations de voyage</p>
+                    </div>
+                    <div style="padding: 20px; background: #f1f5f9; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h3 style="margin: 0 0 10px 0; color: #334155;">💳 Paiement</h3>
+                        <p style="margin: 0; color: #64748b; font-size: 0.95rem;">Soutien pour les questions de paiement</p>
+                    </div>
+                    <div style="padding: 20px; background: #f1f5f9; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h3 style="margin: 0 0 10px 0; color: #334155;">🛫 Visas & Documents</h3>
+                        <p style="margin: 0; color: #64748b; font-size: 0.95rem;">Informations sur les visas et vaccins</p>
+                    </div>
+                    <div style="padding: 20px; background: #f1f5f9; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h3 style="margin: 0 0 10px 0; color: #334155;">📞 Support Client</h3>
+                        <p style="margin: 0; color: #64748b; font-size: 0.95rem;">Questions générales et support</p>
+                    </div>
+                    <div style="padding: 20px; background: #f1f5f9; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h3 style="margin: 0 0 10px 0; color: #334155;">🎫 Modifications</h3>
+                        <p style="margin: 0; color: #64748b; font-size: 0.95rem;">Annulations et modifications de réservations</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Avantages -->
+            <div class="card" style="margin-bottom: 40px; padding: 40px; border-radius: 12px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h2 style="color: #667eea; margin-bottom: 20px;">✨ Avantages du Système Unifié</h2>
+                <ul style="color: #475569; font-size: 1.05rem; line-height: 2; list-style-position: inside;">
+                    <li>✅ <strong>Accessible partout</strong> - Chat disponible sur chaque page du site</li>
+                    <li>✅ <strong>Réponses instantanées</strong> - Assistance IA intelligente 24h/24</li>
+                    <li>✅ <strong>Historique sauvegardé</strong> - Vos conversations sont mémorisées</li>
+                    <li>✅ <strong>Lien vers la messagerie</strong> - Accès facile aux conversations complètes</li>
+                    <li>✅ <strong>Thème adapté</strong> - Le chat s'adapte au mode clair/sombre</li>
+                    <li>✅ <strong>Responsive</strong> - Fonctionne parfaitement sur mobile et desktop</li>
+                    <li>✅ <strong>Sans distraction</strong> - Fenêtre compacte qui ne gêne pas la navigation</li>
+                </ul>
+            </div>
+
+            <!-- Section 6: FAQ -->
+            <div class="card" style="margin-bottom: 40px; padding: 40px; border-radius: 12px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h2 style="color: #667eea; margin-bottom: 30px;">❓ Questions Fréquentes</h2>
+                
+                <div style="margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid #e2e8f0;">
+                    <h3 style="color: #334155; margin-bottom: 10px;">Le chat est-il réel ou automatisé?</h3>
+                    <p style="color: #64748b; margin: 0; line-height: 1.6;">
+                        Le chat utilise une IA intelligente pour répondre aux questions courantes instantanément. 
+                        Pour les questions plus complexes, vous pouvez accéder à la messagerie complète où vous parlerez avec nos agents.
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid #e2e8f0;">
+                    <h3 style="color: #334155; margin-bottom: 10px;">Mes messages sont-ils confidentiels?</h3>
+                    <p style="color: #64748b; margin: 0; line-height: 1.6;">
+                        Oui, vos messages sont stockés localement dans votre navigateur et ne sont pas partagés 
+                        sauf si vous les envoyez à nos agents via la messagerie complète.
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid #e2e8f0;">
+                    <h3 style="color: #334155; margin-bottom: 10px;">Comment accéder à la messagerie complète?</h3>
+                    <p style="color: #64748b; margin: 0; line-height: 1.6;">
+                        Dans le chat flottant, cliquez sur le lien <strong>"Ouvrir messagerie complète"</strong> 
+                        au bas de la fenêtre pour accéder à la page de messagerie détaillée.
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 0;">
+                    <h3 style="color: #334155; margin-bottom: 10px;">Le chat est-il disponible sur mobile?</h3>
+                    <p style="color: #64748b; margin: 0; line-height: 1.6;">
+                        Absolument! Le chat est entièrement responsive et optimisé pour les appareils mobiles. 
+                        Il s'adapte automatiquement à la taille de votre écran.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div style="text-align: center; padding: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                        border-radius: 12px; color: white; margin-bottom: 40px;">
+                <h2 style="margin-top: 0;">Prêt à commencer?</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 20px;">Cliquez sur le bouton 💬 pour discuter avec nous maintenant!</p>
+                <a href="acceuil.html" style="display: inline-block; background: white; color: #667eea; 
+                            padding: 12px 30px; border-radius: 25px; text-decoration: none; 
+                            font-weight: 600; transition: all 0.3s ease;">
+                    Retour à l'Accueil
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="acceuil.html#contact">Contact</a></li>
+                        <li><a href="chat-help.html">Aide Chat</a></li>
+                        <li><a href="booking-tracker.html">Suivi Réservation</a></li>
+                        <li><a href="acceuil.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Ressources</h3>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="deals.html">Offres</a></li>
+                        <li><a href="travel-info.html">Infos Pratiques</a></li>
+                        <li><a href="terms.html">Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Nous Suivre</h3>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="#" style="color: white; font-size: 1.5rem;">📘</a>
+                        <a href="#" style="color: white; font-size: 1.5rem;">🐦</a>
+                        <a href="#" style="color: white; font-size: 1.5rem;">📷</a>
+                        <a href="#" style="color: white; font-size: 1.5rem;">🎥</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p style="margin: 10px 0;">&copy; 2026 Voyage Élégance. Tous droits réservés.</p>
+                <p style="margin: 10px 0; font-size: 0.9rem;">Votre agence de voyages de confiance en Guinée 🇬🇳</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts pour thème et menu -->
+    <script>
+        // Gestion du thème
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        const themeIcon = document.getElementById('themeIcon');
+
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const newTheme = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+        }
+
+        // Gestion du menu hamburger
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
+
+    <!-- Chat Widget -->
+    <script src="chat-widget.js"></script>
+</body>
+
+</html>
