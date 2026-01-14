@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie Voyage Élégance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="acceuil.html" style="text-decoration: none; color: inherit;">
+                    <h1>✈️ Voyage Élégance</h1>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="acceuil.html#accueil">Accueil</a></li>
+                <li><a href="acceuil.html#destinations">Destinations</a></li>
+                <li><a href="acceuil.html#reservation">Réservation</a></li>
+                <li><a href="acceuil.html#services">Services</a></li>
+                <li><a href="acceuil.html#contact">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <a href="login.html" class="login-btn">Connexion</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème" title="Changer de thème">
+                    <span id="themeIcon">🌙</span>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Notre Galerie de Voyages</h1>
+            <p class="hero-subtitle">Découvrez les moments mémorables de nos clients à travers le monde</p>
+        </div>
+    </section>
+
+    <!-- 🎬 Gallery Carousel Section -->
+    <section class="carousel-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>✨ Galerie Premium</h2>
+                <p>Les plus beaux moments capturés lors de nos voyages</p>
+            </div>
+
+            <div class="carousel-container" id="galleryCarousel">
+                <div class="carousel-slides">
+                    <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200&auto=format&fit=crop');">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200&auto=format&fit=crop" alt="Mont Fuji">
+                        <div class="carousel-slide-content">
+                            <h3 class="carousel-slide-title">Mont Fuji au Coucher de Soleil</h3>
+                            <p class="carousel-slide-description">Une vue spectaculaire de la plus célèbre montagne du Japon avec nos voyageurs heureux</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1519904981063-b0cf448d479e?q=80&w=1200&auto=format&fit=crop');">
+                        <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?q=80&w=1200&auto=format&fit=crop" alt="Maldives">
+                        <div class="carousel-slide-content">
+                            <h3 class="carousel-slide-title">Plage aux Maldives</h3>
+                            <p class="carousel-slide-description">Moment détente sur une île paradisiaque avec eaux turquoise</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format&fit=crop');">
+                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format&fit=crop" alt="Paris">
+                        <div class="carousel-slide-content">
+                            <h3 class="carousel-slide-title">Romantisme à Paris</h3>
+                            <p class="carousel-slide-description">Une promenade inoubliable dans la Ville Lumière</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1200&auto=format&fit=crop');">
+                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1200&auto=format&fit=crop" alt="Bali">
+                        <div class="carousel-slide-content">
+                            <h3 class="carousel-slide-title">Temples de Bali</h3>
+                            <p class="carousel-slide-description">L'architecture sacrée et la spiritualité balinaise</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop');">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop" alt="New York">
+                        <div class="carousel-slide-content">
+                            <h3 class="carousel-slide-title">Skyline de New York</h3>
+                            <p class="carousel-slide-description">L'énergie et la grandeur de la Grosse Pomme</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop');">
+                        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop" alt="Plage Paradise">
+                        <div class="carousel-slide-content">
+                            <h3 class="carousel-slide-title">Paradis Tropical</h3>
+                            <p class="carousel-slide-description">Un coin de paradis loin de tout avec nos clients satisfaits</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">10k+</span>
+                    <span class="stat-label">Voyageurs Heureux</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Années d'Expérience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Destinations</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Satisfaction Client</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Voyage Élégance</h3>
+                    <p>Votre agence de voyages de confiance pour des aventures inoubliables</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="acceuil.html">Accueil</a></li>
+                        <li><a href="acceuil.html#destinations">Destinations</a></li>
+                        <li><a href="acceuil.html#services">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacts</h4>
+                    <ul>
+                        <li>📞 +224 629 403 019</li>
+                        <li>📧 info@voyageelegance.com</li>
+                        <li>📍 Conakry, Guinée</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Réseaux Sociaux</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Voyage Élégance. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Carousel Script -->
+    <script src="carousel.js"></script>
+
+    <!-- Chat Widget -->
+    <script src="chat-widget.js"></script>
+
+    <!-- Theme Toggle -->
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Vérifier le thème sauvegardé
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            const icon = document.getElementById('themeIcon');
+            icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+    </script>
+</body>
+
+</html>

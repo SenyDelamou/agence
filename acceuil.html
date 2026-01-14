@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voyage Élégance - Agence de Voyages en Guinée</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chat.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -49,6 +50,51 @@
             <p class="hero-subtitle">Découvrez les plus belles destinations de Guinée et du monde avec nos offres
                 exclusives</p>
             <a href="#destinations" class="btn btn-primary">Explorer les Destinations</a>
+        </div>
+    </section>
+
+    <!-- 🎬 Carousel des Destinations -->
+    <section class="carousel-section">
+        <div class="container">
+            <div class="carousel-container" id="mainCarousel">
+                <div class="carousel-slides">
+                    <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200&auto=format&fit=crop');">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200&auto=format&fit=crop" alt="Mont Fuji">
+                        <div class="carousel-slide-content">
+                            <h3 class="carousel-slide-title">Japon Mystique</h3>
+                            <p class="carousel-slide-description">Explorez la culture traditionnelle et la beauté moderne du Japon avec nos circuits exclusifs</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1519904981063-b0cf448d479e?q=80&w=1200&auto=format&fit=crop');">
+                        <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?q=80&w=1200&auto=format&fit=crop" alt="Maldives">
+                        <div class="carousel-slide-content">
+                            <h3 class="carousel-slide-title">Maldives Paradisiaques</h3>
+                            <p class="carousel-slide-description">Des plages blanches, des eaux turquoise et le luxe ultime vous attendent aux Maldives</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format&fit=crop');">
+                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format&fit=crop" alt="Paris">
+                        <div class="carousel-slide-content">
+                            <h3 class="carousel-slide-title">Paris - La Ville Lumière</h3>
+                            <p class="carousel-slide-description">Découvrez la magie de Paris, ses monuments iconiques et sa gastronomie raffinée</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1200&auto=format&fit=crop');">
+                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1200&auto=format&fit=crop" alt="Bali">
+                        <div class="carousel-slide-content">
+                            <h3 class="carousel-slide-title">Bali Tropical</h3>
+                            <p class="carousel-slide-description">Temples anciens, terrasses de riz et plages magnifiques vous enchantent à Bali</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200&auto=format&fit=crop');">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200&auto=format&fit=crop" alt="Fouta Djallon">
+                        <div class="carousel-slide-content">
+                            <h3 class="carousel-slide-title">Fouta Djallon - Guinée</h3>
+                            <p class="carousel-slide-description">Les montagnes majestueuses de la Guinée, source d'eau et de cultures authentiques</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -142,7 +188,8 @@
                         <div class="destination-price">À partir de 500 000 GNF</div>
                         <p>Découvrez les magnifiques paysages montagneux, les cascades et la culture peule du Fouta
                             Djallon.</p>
-                        <button class="btn btn-secondary reserve-btn" data-load-action onclick="handleReservation(event)">Réserver</button>
+                        <button class="btn btn-secondary reserve-btn" data-load-action
+                            onclick="handleReservation(event)">Réserver</button>
                     </div>
                 </div>
                 <div class="destination-card" data-category="local" data-animate="scale">
@@ -156,7 +203,8 @@
                         <div class="destination-price">À partir de 750 000 GNF</div>
                         <p>Plages de sable blanc, eaux turquoise et nature préservée sur les îles de Loos au large de
                             Conakry.</p>
-                        <button class="btn btn-secondary reserve-btn" data-load-action onclick="handleReservation(event)">Réserver</button>
+                        <button class="btn btn-secondary reserve-btn" data-load-action
+                            onclick="handleReservation(event)">Réserver</button>
                     </div>
                 </div>
                 <div class="destination-card" data-category="local" data-animate="scale">
@@ -169,7 +217,8 @@
                     <div class="destination-info">
                         <div class="destination-price">À partir de 400 000 GNF</div>
                         <p>Randonnée sur la montagne Kakoulima, site sacré offrant une vue panoramique sur Conakry.</p>
-                        <button class="btn btn-secondary reserve-btn" data-load-action onclick="handleReservation(event)">Réserver</button>
+                        <button class="btn btn-secondary reserve-btn" data-load-action
+                            onclick="handleReservation(event)">Réserver</button>
                     </div>
                 </div>
                 <div class="destination-card" data-category="africa" data-animate="scale">
@@ -183,7 +232,8 @@
                         <div class="destination-price">À partir de 1 200 000 GNF</div>
                         <p>Découvrez la capitale sénégalaise, sa culture riche, ses marchés animés et son patrimoine
                             historique.</p>
-                        <button class="btn btn-secondary reserve-btn" data-load-action onclick="handleReservation(event)">Réserver</button>
+                        <button class="btn btn-secondary reserve-btn" data-load-action
+                            onclick="handleReservation(event)">Réserver</button>
                     </div>
                 </div>
                 <div class="destination-card" data-category="africa" data-animate="scale">
@@ -196,7 +246,8 @@
                     <div class="destination-info">
                         <div class="destination-price">À partir de 1 500 000 GNF</div>
                         <p>Explorez la métropole ivoirienne, ses plages, sa vie nocturne animée et sa gastronomie.</p>
-                        <button class="btn btn-secondary reserve-btn" data-load-action onclick="handleReservation(event)">Réserver</button>
+                        <button class="btn btn-secondary reserve-btn" data-load-action
+                            onclick="handleReservation(event)">Réserver</button>
                     </div>
                 </div>
                 <div class="destination-card">
@@ -210,7 +261,8 @@
                         <div class="destination-price">À partir de 8 000 000 GNF</div>
                         <p>Voyagez vers la capitale française avec ses monuments emblématiques et sa culture européenne.
                         </p>
-                        <button class="btn btn-secondary reserve-btn" onclick="handleReservation(event)">Réserver</button>
+                        <button class="btn btn-secondary reserve-btn"
+                            onclick="handleReservation(event)">Réserver</button>
                     </div>
                 </div>
             </div>
@@ -232,181 +284,184 @@
                 </div>
                 <form class="reservation-form" id="reservationForm">
                     <div id="reservationContent">
-                    <div class="form-section">
-                        <h3>📍 Informations sur le Voyage</h3>
-                        <div class="form-row">
+                        <div class="form-section">
+                            <h3>📍 Informations sur le Voyage</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="destination">Destination *</label>
+                                    <select id="destination" name="destination" required>
+                                        <option value="">Sélectionnez une destination</option>
+                                        <option value="fouta-djallon">Fouta Djallon, Guinée - À partir de 500 000 GNF
+                                        </option>
+                                        <option value="iles-de-loos">Îles de Loos, Guinée - À partir de 750 000 GNF
+                                        </option>
+                                        <option value="kakoulima">Kakoulima, Guinée - À partir de 400 000 GNF</option>
+                                        <option value="dakar">Dakar, Sénégal - À partir de 1 200 000 GNF</option>
+                                        <option value="abidjan">Abidjan, Côte d'Ivoire - À partir de 1 500 000 GNF
+                                        </option>
+                                        <option value="paris">Paris, France - À partir de 8 000 000 GNF</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="hebergement">Type d'Hébergement *</label>
+                                    <select id="hebergement" name="hebergement" required>
+                                        <option value="">Sélectionnez un type</option>
+                                        <option value="hotel">Hôtel</option>
+                                        <option value="resort">Resort</option>
+                                        <option value="appartement">Appartement</option>
+                                        <option value="villa">Villa</option>
+                                        <option value="auberge">Auberge</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="date-depart">Date de Départ *</label>
+                                    <input type="date" id="date-depart" name="date-depart" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="date-retour">Date de Retour *</label>
+                                    <input type="date" id="date-retour" name="date-retour" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="adultes">Nombre d'Adultes *</label>
+                                    <select id="adultes" name="adultes" required>
+                                        <option value="1">1 Adulte</option>
+                                        <option value="2" selected>2 Adultes</option>
+                                        <option value="3">3 Adultes</option>
+                                        <option value="4">4 Adultes</option>
+                                        <option value="5">5 Adultes</option>
+                                        <option value="6+">6+ Adultes</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="enfants">Nombre d'Enfants</label>
+                                    <select id="enfants" name="enfants">
+                                        <option value="0" selected>0 Enfant</option>
+                                        <option value="1">1 Enfant</option>
+                                        <option value="2">2 Enfants</option>
+                                        <option value="3">3 Enfants</option>
+                                        <option value="4+">4+ Enfants</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="form-group">
-                                <label for="destination">Destination *</label>
-                                <select id="destination" name="destination" required>
-                                    <option value="">Sélectionnez une destination</option>
-                                    <option value="fouta-djallon">Fouta Djallon, Guinée - À partir de 500 000 GNF
-                                    </option>
-                                    <option value="iles-de-loos">Îles de Loos, Guinée - À partir de 750 000 GNF</option>
-                                    <option value="kakoulima">Kakoulima, Guinée - À partir de 400 000 GNF</option>
-                                    <option value="dakar">Dakar, Sénégal - À partir de 1 200 000 GNF</option>
-                                    <option value="abidjan">Abidjan, Côte d'Ivoire - À partir de 1 500 000 GNF</option>
-                                    <option value="paris">Paris, France - À partir de 8 000 000 GNF</option>
+                                <label for="budget">Budget Approximatif (par personne)</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Sélectionnez un budget</option>
+                                    <option value="300000-500000">300 000 - 500 000 GNF</option>
+                                    <option value="500000-1000000">500 000 - 1 000 000 GNF</option>
+                                    <option value="1000000-2000000">1 000 000 - 2 000 000 GNF</option>
+                                    <option value="2000000-5000000">2 000 000 - 5 000 000 GNF</option>
+                                    <option value="5000000+">5 000 000 GNF et plus</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>👤 Informations Personnelles</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="nom">Nom *</label>
+                                    <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prenom">Prénom *</label>
+                                    <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" placeholder="votre.email@exemple.com"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telephone">Téléphone *</label>
+                                    <input type="tel" id="telephone" name="telephone" placeholder="+224 612 34 56 78"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse">Adresse</label>
+                                <input type="text" id="adresse" name="adresse" placeholder="Votre adresse complète">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="ville">Ville</label>
+                                    <input type="text" id="ville" name="ville" placeholder="Votre ville">
+                                </div>
+                                <div class="form-group">
+                                    <label for="code-postal">Code Postal</label>
+                                    <input type="text" id="code-postal" name="code-postal" placeholder="75000">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>✈️ Options Supplémentaires</h3>
+                            <div class="form-group">
+                                <label for="vol">Souhaitez-vous réserver un vol ?</label>
+                                <select id="vol" name="vol">
+                                    <option value="non">Non, je réserve seulement l'hébergement</option>
+                                    <option value="oui-aller-retour">Oui, aller-retour</option>
+                                    <option value="oui-aller-simple">Oui, aller simple</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="hebergement">Type d'Hébergement *</label>
-                                <select id="hebergement" name="hebergement" required>
-                                    <option value="">Sélectionnez un type</option>
-                                    <option value="hotel">Hôtel</option>
-                                    <option value="resort">Resort</option>
-                                    <option value="appartement">Appartement</option>
-                                    <option value="villa">Villa</option>
-                                    <option value="auberge">Auberge</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="date-depart">Date de Départ *</label>
-                                <input type="date" id="date-depart" name="date-depart" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="date-retour">Date de Retour *</label>
-                                <input type="date" id="date-retour" name="date-retour" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="adultes">Nombre d'Adultes *</label>
-                                <select id="adultes" name="adultes" required>
-                                    <option value="1">1 Adulte</option>
-                                    <option value="2" selected>2 Adultes</option>
-                                    <option value="3">3 Adultes</option>
-                                    <option value="4">4 Adultes</option>
-                                    <option value="5">5 Adultes</option>
-                                    <option value="6+">6+ Adultes</option>
+                                <label for="transfert">Transfert Aéroport</label>
+                                <select id="transfert" name="transfert">
+                                    <option value="non">Non</option>
+                                    <option value="oui">Oui, je souhaite un transfert</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="enfants">Nombre d'Enfants</label>
-                                <select id="enfants" name="enfants">
-                                    <option value="0" selected>0 Enfant</option>
-                                    <option value="1">1 Enfant</option>
-                                    <option value="2">2 Enfants</option>
-                                    <option value="3">3 Enfants</option>
-                                    <option value="4+">4+ Enfants</option>
-                                </select>
+                                <label for="assurance">Assurance Voyage</label>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="assurance" name="assurance" value="oui">
+                                    <label for="assurance">Je souhaite souscrire à une assurance voyage</label>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="budget">Budget Approximatif (par personne)</label>
-                            <select id="budget" name="budget">
-                                <option value="">Sélectionnez un budget</option>
-                                <option value="300000-500000">300 000 - 500 000 GNF</option>
-                                <option value="500000-1000000">500 000 - 1 000 000 GNF</option>
-                                <option value="1000000-2000000">1 000 000 - 2 000 000 GNF</option>
-                                <option value="2000000-5000000">2 000 000 - 5 000 000 GNF</option>
-                                <option value="5000000+">5 000 000 GNF et plus</option>
-                            </select>
-                        </div>
-                    </div>
 
-                    <div class="form-section">
-                        <h3>👤 Informations Personnelles</h3>
-                        <div class="form-row">
+                        <div class="form-section">
+                            <h3>💬 Préférences et Commentaires</h3>
                             <div class="form-group">
-                                <label for="nom">Nom *</label>
-                                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+                                <label for="preferences">Préférences Spéciales</label>
+                                <textarea id="preferences" name="preferences" rows="4"
+                                    placeholder="Chambre avec vue, régime alimentaire spécial, accessibilité, etc."></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="prenom">Prénom *</label>
-                                <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" placeholder="votre.email@exemple.com"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <label for="telephone">Téléphone *</label>
-                                <input type="tel" id="telephone" name="telephone" placeholder="+224 612 34 56 78"
-                                    required>
+                                <label for="commentaires">Commentaires Additionnels</label>
+                                <textarea id="commentaires" name="commentaires" rows="4"
+                                    placeholder="Toute autre information que vous souhaitez nous communiquer..."></textarea>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="adresse">Adresse</label>
-                            <input type="text" id="adresse" name="adresse" placeholder="Votre adresse complète">
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="ville">Ville</label>
-                                <input type="text" id="ville" name="ville" placeholder="Votre ville">
-                            </div>
-                            <div class="form-group">
-                                <label for="code-postal">Code Postal</label>
-                                <input type="text" id="code-postal" name="code-postal" placeholder="75000">
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="form-section">
-                        <h3>✈️ Options Supplémentaires</h3>
-                        <div class="form-group">
-                            <label for="vol">Souhaitez-vous réserver un vol ?</label>
-                            <select id="vol" name="vol">
-                                <option value="non">Non, je réserve seulement l'hébergement</option>
-                                <option value="oui-aller-retour">Oui, aller-retour</option>
-                                <option value="oui-aller-simple">Oui, aller simple</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="transfert">Transfert Aéroport</label>
-                            <select id="transfert" name="transfert">
-                                <option value="non">Non</option>
-                                <option value="oui">Oui, je souhaite un transfert</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="assurance">Assurance Voyage</label>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="assurance" name="assurance" value="oui">
-                                <label for="assurance">Je souhaite souscrire à une assurance voyage</label>
+                        <div class="form-section">
+                            <div class="form-group">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="conditions" name="conditions" required>
+                                    <label for="conditions">J'accepte les <a href="#" class="link">conditions
+                                            générales</a>
+                                        et la <a href="#" class="link">politique de confidentialité</a> *</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <label for="newsletter">Je souhaite recevoir les offres promotionnelles par
+                                        email</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-section">
-                        <h3>💬 Préférences et Commentaires</h3>
-                        <div class="form-group">
-                            <label for="preferences">Préférences Spéciales</label>
-                            <textarea id="preferences" name="preferences" rows="4"
-                                placeholder="Chambre avec vue, régime alimentaire spécial, accessibilité, etc."></textarea>
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary btn-large">Confirmer la Réservation</button>
+                            <p class="form-note">* Champs obligatoires</p>
                         </div>
-                        <div class="form-group">
-                            <label for="commentaires">Commentaires Additionnels</label>
-                            <textarea id="commentaires" name="commentaires" rows="4"
-                                placeholder="Toute autre information que vous souhaitez nous communiquer..."></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-section">
-                        <div class="form-group">
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="conditions" name="conditions" required>
-                                <label for="conditions">J'accepte les <a href="#" class="link">conditions générales</a>
-                                    et la <a href="#" class="link">politique de confidentialité</a> *</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="newsletter" name="newsletter">
-                                <label for="newsletter">Je souhaite recevoir les offres promotionnelles par
-                                    email</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-submit">
-                        <button type="submit" class="btn btn-primary btn-large">Confirmer la Réservation</button>
-                        <p class="form-note">* Champs obligatoires</p>
-                    </div>
                     </div>
                 </form>
             </div>
@@ -505,7 +560,8 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card" data-animate="scale">
                     <div class="rating-display">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Un voyage inoubliable! Toute l'équipe a été très attentive et professionnelle. Je recommande vivement!"</p>
+                    <p class="testimonial-text">"Un voyage inoubliable! Toute l'équipe a été très attentive et
+                        professionnelle. Je recommande vivement!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">👨‍💼</div>
                         <div>
@@ -516,7 +572,8 @@
                 </div>
                 <div class="testimonial-card" data-animate="scale">
                     <div class="rating-display">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Les prix sont compétitifs et le service client est excellent. J'ai déjà réservé 3 voyages avec eux!"</p>
+                    <p class="testimonial-text">"Les prix sont compétitifs et le service client est excellent. J'ai déjà
+                        réservé 3 voyages avec eux!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">👩‍💼</div>
                         <div>
@@ -527,7 +584,8 @@
                 </div>
                 <div class="testimonial-card" data-animate="scale">
                     <div class="rating-display">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Des destinations magnifiques et une organisation impeccable. Merci pour cette belle expérience!"</p>
+                    <p class="testimonial-text">"Des destinations magnifiques et une organisation impeccable. Merci pour
+                        cette belle expérience!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">👨‍👩‍👧‍👦</div>
                         <div>
@@ -612,7 +670,9 @@
                         <span class="faq-icon">+</span>
                     </label>
                     <div class="faq-answer">
-                        <p>Cliquez sur "Réservation" dans le menu, remplissez le formulaire avec vos détails, choisissez vos dates et validez votre réservation. Un email de confirmation vous sera envoyé immédiatement.</p>
+                        <p>Cliquez sur "Réservation" dans le menu, remplissez le formulaire avec vos détails, choisissez
+                            vos dates et validez votre réservation. Un email de confirmation vous sera envoyé
+                            immédiatement.</p>
                     </div>
                 </div>
 
@@ -623,7 +683,9 @@
                         <span class="faq-icon">+</span>
                     </label>
                     <div class="faq-answer">
-                        <p>Nous acceptons les cartes bancaires (Visa, MasterCard), les virements bancaires, et les portefeuilles électroniques sécurisés. Tous les paiements sont protégés par le standard PCI-DSS.</p>
+                        <p>Nous acceptons les cartes bancaires (Visa, MasterCard), les virements bancaires, et les
+                            portefeuilles électroniques sécurisés. Tous les paiements sont protégés par le standard
+                            PCI-DSS.</p>
                     </div>
                 </div>
 
@@ -634,7 +696,8 @@
                         <span class="faq-icon">+</span>
                     </label>
                     <div class="faq-answer">
-                        <p>Oui! Vous pouvez modifier votre réservation jusqu'à 30 jours avant le départ sans frais. Après ce délai, des frais peuvent s'appliquer selon nos conditions.</p>
+                        <p>Oui! Vous pouvez modifier votre réservation jusqu'à 30 jours avant le départ sans frais.
+                            Après ce délai, des frais peuvent s'appliquer selon nos conditions.</p>
                     </div>
                 </div>
 
@@ -645,7 +708,8 @@
                         <span class="faq-icon">+</span>
                     </label>
                     <div class="faq-answer">
-                        <p>Annulation gratuite jusqu'à 30 jours avant. 25% de frais entre 15-30 jours, 50% entre 7-15 jours, 100% moins de 7 jours. Consultez nos conditions pour plus de détails.</p>
+                        <p>Annulation gratuite jusqu'à 30 jours avant. 25% de frais entre 15-30 jours, 50% entre 7-15
+                            jours, 100% moins de 7 jours. Consultez nos conditions pour plus de détails.</p>
                     </div>
                 </div>
 
@@ -656,7 +720,8 @@
                         <span class="faq-icon">+</span>
                     </label>
                     <div class="faq-answer">
-                        <p>Cela dépend de votre nationalité et de votre destination. Consultez notre page "Infos Pratiques" pour des informations détaillées sur les visas par destination.</p>
+                        <p>Cela dépend de votre nationalité et de votre destination. Consultez notre page "Infos
+                            Pratiques" pour des informations détaillées sur les visas par destination.</p>
                     </div>
                 </div>
 
@@ -667,7 +732,8 @@
                         <span class="faq-icon">+</span>
                     </label>
                     <div class="faq-answer">
-                        <p>L'assurance voyage n'est pas automatiquement incluse. Nous vous recommandons fortement de souscrire une assurance complète couvrant les annulations et les frais médicaux.</p>
+                        <p>L'assurance voyage n'est pas automatiquement incluse. Nous vous recommandons fortement de
+                            souscrire une assurance complète couvrant les annulations et les frais médicaux.</p>
                     </div>
                 </div>
 
@@ -678,7 +744,9 @@
                         <span class="faq-icon">+</span>
                     </label>
                     <div class="faq-answer">
-                        <p>Vous pouvez nous contacter par email, téléphone, chat en ligne, ou vidéo. Notre équipe est disponible 24/7 pour répondre à vos questions. Cliquez sur l'icône support en bas de page.</p>
+                        <p>Vous pouvez nous contacter par email, téléphone, chat en ligne, ou vidéo. Notre équipe est
+                            disponible 24/7 pour répondre à vos questions. Cliquez sur l'icône support en bas de page.
+                        </p>
                     </div>
                 </div>
 
@@ -689,7 +757,8 @@
                         <span class="faq-icon">+</span>
                     </label>
                     <div class="faq-answer">
-                        <p>Oui! Nous proposons des circuits guidés en groupe à des tarifs avantageux. Contactez-nous pour des devis personnalisés et des dates disponibles.</p>
+                        <p>Oui! Nous proposons des circuits guidés en groupe à des tarifs avantageux. Contactez-nous
+                            pour des devis personnalisés et des dates disponibles.</p>
                     </div>
                 </div>
             </div>
@@ -795,11 +864,11 @@
             searchInput.addEventListener('input', (e) => {
                 const term = e.target.value.toLowerCase();
                 const cards = document.querySelectorAll('.destination-card');
-                
+
                 cards.forEach(card => {
                     const title = card.querySelector('h3').textContent.toLowerCase();
                     const desc = card.querySelector('p').textContent.toLowerCase();
-                    
+
                     if (title.includes(term) || desc.includes(term)) {
                         card.style.display = 'block';
                     } else {
@@ -904,7 +973,7 @@
             const btn = event.target;
             btn.classList.toggle('active');
             const cardTitle = btn.closest('.destination-card').querySelector('h3')?.textContent || 'Destination';
-            
+
             if (btn.classList.contains('active')) {
                 btn.textContent = '❤️';
                 showNotification(`${cardTitle} ajouté à vos favoris!`);
@@ -950,11 +1019,11 @@
         document.getElementById('destSearch')?.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
             const cards = document.querySelectorAll('.destination-card');
-            
+
             cards.forEach(card => {
                 const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
                 const description = card.querySelector('.destination-info p')?.textContent.toLowerCase() || '';
-                
+
                 if (title.includes(searchTerm) || description.includes(searchTerm)) {
                     card.style.display = '';
                     card.style.animation = 'fadeIn 0.3s ease';
@@ -1054,13 +1123,13 @@
             <button class="modal-close">✕</button>
             <h3 class="modal-title">✨ Partagez Votre Avis</h3>
             <p class="modal-subtitle">Aidez-nous à améliorer nos services</p>
-            
+
             <form id="reviewForm">
                 <div class="form-group">
                     <label class="form-label">Votre Nom</label>
                     <input type="text" id="reviewName" class="form-input" placeholder="Jean Dupont" required>
                 </div>
-                
+
                 <div class="form-group">
                     <label class="form-label">Votre Note</label>
                     <div class="review-rating">
@@ -1071,14 +1140,16 @@
                         <span class="rating-star" data-rating="5">⭐</span>
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label class="form-label">Votre Avis</label>
-                    <textarea id="reviewComment" class="form-input form-textarea" placeholder="Dites-nous ce que vous avez aimé..."></textarea>
+                    <textarea id="reviewComment" class="form-input form-textarea"
+                        placeholder="Dites-nous ce que vous avez aimé..."></textarea>
                 </div>
-                
+
                 <div class="review-buttons">
-                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('reviewModal').style.display='none'">Annuler</button>
+                    <button type="button" class="btn btn-secondary"
+                        onclick="document.getElementById('reviewModal').style.display='none'">Annuler</button>
                     <button type="button" id="submitReview" class="btn btn-primary">Envoyer l'Avis</button>
                 </div>
             </form>
@@ -1087,6 +1158,9 @@
 
     <!-- Modern Features JavaScript -->
     <script src="modern-features.js"></script>
+
+    <!-- Carousel Script -->
+    <script src="carousel.js"></script>
 
     <!-- Chat Widget -->
     <script src="chat-widget.js"></script>
