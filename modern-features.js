@@ -830,45 +830,59 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     // Ajouter événements click sur les cartes destinations
-    document.querySelectorAll('.destination-card').forEach(card => {
-        card.addEventListener('click', (e) => {
-            // Ne pas ouvrir si on clique sur un bouton
-            if (e.target.closest('.btn') || e.target.closest('.wishlist-btn')) {
-                return;
-            }
+    function setupDestinationCardListeners() {
+        document.querySelectorAll('.destination-card').forEach(card => {
+            // Ne pas réappliquer si déjà lié
+            if (card.hasDestinationListener) return;
+            card.hasDestinationListener = true;
             
-            const cardTitle = card.querySelector('h3')?.textContent || '';
-            const cardPrice = card.querySelector('.destination-price')?.textContent || '';
-            const cardImage = card.querySelector('.destination-image')?.style.backgroundImage || '';
-            
-            // Chercher les données correspondantes
-            let destinationData = null;
-            for (const [key, data] of Object.entries(destinationsData)) {
-                if (data.name.includes(cardTitle.split(',')[0])) {
-                    destinationData = data;
-                    break;
+            card.addEventListener('click', (e) => {
+                // Ne pas ouvrir si on clique sur un bouton réserver ou wishlist
+                if (e.target.closest('.btn') || e.target.closest('.wishlist-btn') || e.target.closest('.reserve-btn')) {
+                    return;
                 }
-            }
+                
+                const h3 = card.querySelector('h3');
+                const cardTitle = h3?.textContent || '';
+                const cardPrice = card.querySelector('.destination-price')?.textContent || '';
+                const imageDiv = card.querySelector('.destination-image');
+                const description = card.querySelector('.destination-info p')?.textContent || '';
+                
+                // Obtenir le nom de classe de l'image pour identifier la destination
+                const imageClass = imageDiv?.className.split(' ').find(c => !['destination-image'].includes(c)) || '';
+                
+                // Chercher les données correspondantes
+                let destinationData = null;
+                for (const [key, data] of Object.entries(destinationsData)) {
+                    if (key === imageClass || data.name.toLowerCase().includes(cardTitle.toLowerCase())) {
+                        destinationData = data;
+                        break;
+                    }
+                }
+                
+                if (!destinationData) {
+                    // Créer un objet par défaut avec les infos de la carte
+                    destinationData = {
+                        id: imageClass || 'destination-' + Date.now(),
+                        name: cardTitle || 'Destination',
+                        price: cardPrice,
+                        image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800&auto=format&fit=crop',
+                        description: description || 'Découvrez cette magnifique destination.',
+                        features: ['🌍 Unique', '✈️ À découvrir', '⭐ Spéciale'],
+                        activities: ['Exploration', 'Détente', 'Photographie', 'Découverte']
+                    };
+                }
+                
+                destinationModal.open(destinationData);
+            });
             
-            if (!destinationData) {
-                // Créer un objet par défaut
-                destinationData = {
-                    id: 'destination-' + Date.now(),
-                    name: cardTitle,
-                    price: cardPrice,
-                    image: cardImage.replace(/url\(['"]?(.+?)['"]?\)/g, '$1'),
-                    description: card.querySelector('.destination-info p')?.textContent || 'Destination magnifique à découvrir.',
-                    features: ['🌍 Unique', '✈️ À découvrir'],
-                    activities: ['Exploration', 'Détente', 'Découverte']
-                };
-            }
-            
-            destinationModal.open(destinationData);
+            // Ajouter un curseur pointer
+            card.style.cursor = 'pointer';
         });
-        
-        // Ajouter un curseur pointer
-        card.style.cursor = 'pointer';
-    });
+    }
+    
+    // Appeler au chargement
+    setupDestinationCardListeners();
     
     // Observer les nouvelles cartes ajoutées dynamiquement
     const cardObserverForModal = new MutationObserver(() => {
@@ -913,8 +927,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (destinationsSection) {
         cardObserverForModal.observe(destinationsSection, { childList: true, subtree: true });
     }
-
     
+
     if (parallaxElements.length > 0) {
         window.addEventListener('scroll', function() {
             parallaxElements.forEach(element => {
